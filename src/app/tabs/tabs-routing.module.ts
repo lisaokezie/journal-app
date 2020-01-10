@@ -8,45 +8,61 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'entries',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../list-tab/list-tab.module').then(m => m.ListTabPageModule)
+          },
+          {
+            path: 'detail/:id',
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../detail/detail.module').then( m => m.DetailPageModule)
+
+              },
+              {
+                path:'edit',
+                loadChildren: () => import('../edit-entry/edit-entry.module').then( m => m.EditEntryPageModule)
+
+              }
+
+            ]
+          },
+          {
+            path: 'add-entry',
+            loadChildren: () => import('../add-entry/add-entry.module').then( m => m.AddEntryPageModule)
           }
+
         ]
       },
       {
-        path: 'tab2',
+        path: 'home',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../home-tab/home-tab.module').then(m => m.HomeTabPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'settings',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../settings-tab/settings-tab.module').then(m => m.SettingsTabPageModule)
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/entries',
     pathMatch: 'full'
   }
 ];
