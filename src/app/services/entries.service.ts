@@ -8,7 +8,15 @@ import { Entry } from '../interfaces/entry';
 })
 export class EntriesService {
   
-  public entries: Entry[] = [];
+  public entries: Entry[] = [
+    {
+      id: "12",
+      title: "New Entry",
+      date:  new Date,
+      content: "Lorem ipsum",
+      isFavorite: false
+    }
+  ];
 
   public loaded: boolean = false;
 
@@ -29,9 +37,7 @@ export class EntriesService {
         resolve(true);
 
       });
-
     });
-
   }
 
     save(): void {
