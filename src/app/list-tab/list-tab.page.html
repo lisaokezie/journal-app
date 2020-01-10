@@ -12,7 +12,7 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Alle Einträge</ion-list-header>
-    <ion-item *ngFor="let entry of entriesService.entries">
+    <ion-item button detail *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
       {{ entry.title }}
     </ion-item>
   </ion-list>

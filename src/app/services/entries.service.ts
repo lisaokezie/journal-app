@@ -57,6 +57,18 @@ export class EntriesService {
       return this.entries.find(entry => entry.id === id);
     }
 
+    // Wandelt das Erstellungsdatum in einen String um
+    getDate(date: Date){
+      let options = {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+      }
+    
+    return date.toLocaleString('de-en', options);
+      // return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+    }
+
     createEntry(title): void {
       let id = Date.now();
       let created = new Date();
