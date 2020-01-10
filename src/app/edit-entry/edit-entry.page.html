@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-entry</ion-title>
+    <ion-title>Edit Entry</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="back">
+        <ion-icon name="checkmark"></ion-icon>       
+      </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="content">
+    <ion-item>
+      <ion-input class="title-input" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
+  </ion-item>
+    <ion-textarea auto-grow type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
+  </div>
 </ion-content>

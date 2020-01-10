@@ -3,8 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/entries"></ion-back-button>
     </ion-buttons>
-    <ion-title>detail</ion-title>
+    <ion-title>{{ entry.title }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button [routerLink]="'/tabs/entries/detail/' + entry.id + '/edit'">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
       <ion-button (click)="deleteEntry(entry)" [routerLink]="'/tabs/entries'" routerDirection="back">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-button>
