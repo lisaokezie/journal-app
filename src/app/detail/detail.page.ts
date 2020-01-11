@@ -1,22 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 import { EntriesService } from '../services/entries.service';
 import { Entry } from '../interfaces/entry';
 
+import { tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
-export class DetailPage implements OnInit {
+export class DetailPage implements OnInit, OnDestroy {
 
   public entry: Entry;
   
   public create: string;
 
   public heart: boolean;
+
+  public subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) { 
 
@@ -36,21 +41,31 @@ export class DetailPage implements OnInit {
 
   }
 
-  ngOnInit() {
-    let entryId = this.route.snapshot.paramMap.get('id');
+  ngOnInit(){
 
-    if(this.entriesService.loaded){
-      this.entry = this.entriesService.getEntry(entryId);
-    } else{
-      this.entriesService.load().then(() => {
-        this.entry = this.entriesService.getEntry(entryId)
-      });
-    }
+    this.subscription = this.route.params.pipe(
+      tap(params => {
 
-    this.heart = this.entriesService.getStatus(this.entry)
-    console.log("Status" + this.heart)
+        const entryId = params["id"];
+
+        if(this.entriesService.loaded){
+          this.entry = this.entriesService.getEntry(entryId);
+        } else{
+          this.entriesService.load().then(() => {
+            this.entry = this.entriesService.getEntry(entryId)
+          });
+        }
+    
+        this.heart = this.entriesService.getStatus(this.entry);
+    
+        console.log("Status" + this.heart)
+      })
+    ).subscribe();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   deleteEntry(entry: Entry){
     this.entriesService.deleteEntry(entry);
 
