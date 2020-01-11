@@ -17,3 +17,21 @@
     <ion-textarea auto-grow type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
   </div>
 </ion-content>
+
+<div class="action-buttons">
+  <ion-button slot="start" (click)="toggleLike(entry)" color="{{buttonColor}}">
+    <ion-icon name="heart"></ion-icon>
+  </ion-button>
+  <ion-button (click)="addTag()">
+    <ion-icon name="pricetag"></ion-icon>
+  </ion-button>
+  <ion-button>
+    <ion-icon name="image"></ion-icon>
+  </ion-button>
+  <ion-button>
+    <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  <ion-button>
+    <ion-icon name="pin"></ion-icon>
+  </ion-button>
+  </div>

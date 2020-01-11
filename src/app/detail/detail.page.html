@@ -21,6 +21,7 @@
     <ion-title class="entry-title ion-text-start"> {{ entry.title }}</ion-title>
     
     <div class="meta"><ion-icon name="clock"></ion-icon> {{ create }}</div>
+    <ion-icon *ngIf="heart" name="heart" size="large" color="danger"></ion-icon>
   </div>
 
     <div class="entry-text">

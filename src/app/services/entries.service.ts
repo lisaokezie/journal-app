@@ -57,6 +57,15 @@ export class EntriesService {
       return this.entries.find(entry => entry.id === id);
     }
 
+    // Gibt isFavorite Status zurück
+    getStatus(entry: Entry){
+      if(entry.isFavorite === true){
+        return true
+      } else {
+        return false
+      }
+    }
+
     // Wandelt das Erstellungsdatum in einen String um
     getDate(date: Date){
       let options = {

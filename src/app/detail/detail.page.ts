@@ -16,6 +16,8 @@ export class DetailPage implements OnInit {
   
   public create: string;
 
+  public heart: boolean;
+
   constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) { 
 
     this.entry = {
@@ -26,6 +28,10 @@ export class DetailPage implements OnInit {
       isFavorite: false
     }
 
+    // Prüft den Status von isFavorite 
+    // Wenn isFavorite = true, wird ein Herz angezeigt
+    this.heart = this.entriesService.getStatus(this.entry)
+    // Wandelt Erstellungsdatum in formatierten String um 
     this.create = this.entriesService.getDate(this.entry.date);
 
   }
@@ -40,6 +46,9 @@ export class DetailPage implements OnInit {
         this.entry = this.entriesService.getEntry(entryId)
       });
     }
+
+    this.heart = this.entriesService.getStatus(this.entry)
+    console.log("Status" + this.heart)
   }
 
   deleteEntry(entry: Entry){

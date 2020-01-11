@@ -14,6 +14,12 @@ export class EditEntryPage implements OnInit {
 
   public entry: Entry;
 
+  public buttonColor: String;
+
+  // Button Farbe für die Zustände isFavorite = true bzw. false
+  likeColor: string = 'danger';
+  unlikeColor: string = 'light';
+
   constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) {
 
     this.entry = {
@@ -24,6 +30,8 @@ export class EditEntryPage implements OnInit {
       isFavorite: false
     }
 
+    this.buttonColor = '';
+    
    }
 
   ngOnInit() {
@@ -36,7 +44,31 @@ export class EditEntryPage implements OnInit {
         this.entry = this.entriesService.getEntry(entryId)
       });
     }
+
+    // Beim laden wird isFavorite geprüft und je nach Status die Farbe des Buttons festgelegt
+    if(this.entriesService.getStatus(this.entry)){
+      this.buttonColor = this.likeColor;
+    }else{
+      this.buttonColor = this.unlikeColor;
+    }
   }
+
+  // Funktion zum liken / entliken eines Eintrags
+  // Button Farbe ändert sich ja nach Zustand
+  // Wird aufgerufen, wenn der Nutzer auf den "Like-Button" klickt 
+  toggleLike(entry){
+    if(entry.isFavorite === true){
+      entry.isFavorite = false;
+      // console.log("unlike " + entry.isFavorite);
+      this.buttonColor = this.unlikeColor;
+    }
+    else{
+      entry.isFavorite = true;
+      // console.log("like " + entry.isFavorite);
+      this.buttonColor = this.likeColor;
+
+    }
+  } 
 
   save(){
     this.entriesService.save();
