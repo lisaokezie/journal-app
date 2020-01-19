@@ -12,4 +12,9 @@ export class HomeTabPage implements OnInit {
   ngOnInit() {
   }
 
+
+  getFavorites(){
+    
+  }
+
 }

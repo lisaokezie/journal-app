@@ -8,17 +8,11 @@ import { Entry } from '../interfaces/entry';
 })
 export class EntriesService {
   
-  public entries: Entry[] = [
-    {
-      id: "12",
-      title: "New Entry",
-      date:  new Date,
-      content: "Lorem ipsum",
-      isFavorite: false
-    }
-  ];
+  public entries: Entry[] = [];
 
   public loaded: boolean = false;
+
+  
 
   constructor(public storage: Storage) { 
     
@@ -78,6 +72,7 @@ export class EntriesService {
       // return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
     }
 
+    
     createEntry(title): void {
       let id = Date.now();
       let created = new Date();
@@ -97,5 +92,17 @@ export class EntriesService {
         this.entries.splice(index, 1);
         this.save();
       }
+    }
+
+    getFavorites(){
+        let favs: Entry[]= [];
+
+        for(let i; i<this.entries.length;i++){
+          if(this.entries[i].isFavorite){
+            console.log(this.entries[i])
+            favs.push(this.entries[i])
+          }
+        }
+        console.log(favs);
     }
 }

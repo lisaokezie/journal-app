@@ -45,6 +45,30 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../home-tab/home-tab.module').then(m => m.HomeTabPageModule)
+          },
+          {
+            path: 'favorites',
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                 import('../favorites/favorites.module').then( m => m.FavoritesPageModule)
+              },
+              {
+                path: 'detail/:id',
+                children: [
+                  {
+                  path: '',
+                  loadChildren: () => import('../detail/detail.module').then( m => m.DetailPageModule)
+                  },
+                  {
+                    path:'edit',
+                    loadChildren: () => import('../edit-entry/edit-entry.module').then( m => m.EditEntryPageModule)
+                  }
+                ]
+                
+              }
+            ] 
           }
         ]
       },

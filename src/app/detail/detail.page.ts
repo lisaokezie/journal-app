@@ -43,6 +43,10 @@ export class DetailPage implements OnInit, OnDestroy {
 
   ngOnInit(){
 
+    /* 
+    subscription behebt Fehler, dass nach Bearbeiten von isFavorite in edit-entry 
+    und Zurückkehren in die Detailansicht die Änderung nicht angezeigt wird
+    */
     this.subscription = this.route.params.pipe(
       tap(params => {
 
@@ -57,8 +61,7 @@ export class DetailPage implements OnInit, OnDestroy {
         }
     
         this.heart = this.entriesService.getStatus(this.entry);
-    
-        console.log("Status" + this.heart)
+
       })
     ).subscribe();
   }

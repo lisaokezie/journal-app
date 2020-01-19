@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
+import { ModalController } from '@ionic/angular';
+
+
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+const { Geolocation } = Plugins;
 
 import { EntriesService } from '../services/entries.service';
 import { Entry } from '../interfaces/entry';
@@ -16,11 +25,15 @@ export class EditEntryPage implements OnInit {
 
   public buttonColor: String;
 
+  photo: SafeResourceUrl;
+
+  public location: String;
+
   // Button Farbe für die Zustände isFavorite = true bzw. false
   likeColor: string = 'danger';
   unlikeColor: string = 'light';
 
-  constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) {
+  constructor(private router: Router, private sanitizer: DomSanitizer, private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController, public modalController: ModalController) {
 
     this.entry = {
       id: '',
@@ -70,9 +83,33 @@ export class EditEntryPage implements OnInit {
     }
   } 
 
-  save(){
-    this.entriesService.save();
+  // save(){
+  //   this.entriesService.save();
+  //   this.router.navigate(['../'], { relativeTo: this.route });
+  // }
+
+  //Kamera
+  async takePicture() {
+    const image = await Plugins.Camera.getPhoto({
+      quality: 100,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera
+    });
+
+    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
+
+  // Geolocation
+  // async getCurrentPosition() {
+  //   const coordinates = await Geolocation.getCurrentPosition();
+  //   console.log('Current', coordinates);
+  // }
+
+  
+
+
+  
 
 
 }

@@ -1,21 +1,24 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Edit Entry</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="save()" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="back">
-        <ion-icon name="checkmark"></ion-icon>       
-      </ion-button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="content">
+
     <ion-item>
       <ion-input class="title-input" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
   </ion-item>
     <ion-textarea auto-grow type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
   </div>
+
+  <!-- <img [src]="photo" > -->
 </ion-content>
 
 <div class="action-buttons">
@@ -28,10 +31,10 @@
   <ion-button>
     <ion-icon name="image"></ion-icon>
   </ion-button>
-  <ion-button>
+  <ion-button (click)="takePicture()">
     <ion-icon name="camera"></ion-icon>
   </ion-button>
-  <ion-button>
+  <ion-button (click)="addLocation">
     <ion-icon name="pin"></ion-icon>
   </ion-button>
   </div>
