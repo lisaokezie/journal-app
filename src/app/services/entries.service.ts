@@ -81,7 +81,7 @@ export class EntriesService {
         title: title,
         date: created,
         content: '',
-        tags: this.tagsService.tags,
+        tags: [],
         isFavorite: false
       });
       this.save();

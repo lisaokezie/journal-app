@@ -7,9 +7,8 @@ import { Storage } from '@ionic/storage';
 })
 export class TagsService {
 
-  public tags = [
-    "Beispieltag", "Tag"
-  ];
+
+  public tags: String[] = ["BeispieltagA", "BeispieltagB"];
 
   public loaded: boolean = false;
 

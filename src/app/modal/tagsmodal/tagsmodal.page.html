@@ -11,9 +11,19 @@
 
 <ion-content>
   
+  <ion-label>Entry Tags</ion-label>
   <ion-item *ngFor="let tag of tags">
     <ion-label>{{ tag }}</ion-label>
-   
   </ion-item>
+
+<ion-label>Tags Service Tags</ion-label>
+  <ion-item *ngFor="let t of tagsService.tags">
+    <ion-label>{{ t }}</ion-label>
+  </ion-item>
+
+
+  <ion-select multiple="true" [(ngModel)]="tags">
+    <ion-select-option *ngFor="let ta of tagsService.tags">{{ ta }}</ion-select-option>
+  </ion-select>
 
 </ion-content>

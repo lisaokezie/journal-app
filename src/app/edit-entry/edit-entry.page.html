@@ -15,6 +15,11 @@
     <ion-item>
       <ion-input class="title-input" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
   </ion-item>
+
+  <ion-chip *ngFor="let tag of entry.tags">
+    <ion-label>{{ tag }}</ion-label>
+  </ion-chip>
+
     <ion-textarea auto-grow type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
   </div>
 

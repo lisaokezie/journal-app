@@ -35,7 +35,7 @@ export class DetailPage implements OnInit, OnDestroy {
       title: '',
       date: new Date,
       content: '',
-      tags: this.tagsService.tags, 
+      tags: [], 
       isFavorite: false
     }
 
@@ -68,7 +68,9 @@ export class DetailPage implements OnInit, OnDestroy {
           });
         }
 
+
         this.heart = this.entriesService.getStatus(this.entry);
+        this.entrytags = this.entry.tags;
 
       })
     ).subscribe();

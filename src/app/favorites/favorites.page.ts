@@ -11,7 +11,7 @@ import { Entry } from '../interfaces/entry';
 })
 export class FavoritesPage implements OnInit {
 
-  public list: Entry[] = [];
+ // public list: Entry[] = [];
 
   public favs;
 

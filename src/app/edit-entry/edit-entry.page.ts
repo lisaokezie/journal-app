@@ -44,7 +44,7 @@ export class EditEntryPage implements OnInit {
       title: '',
       date: new Date(),
       content: '',
-      tags: this.tagsService.tags,
+      tags: [],
       isFavorite: false
     }
 
@@ -121,7 +121,22 @@ export class EditEntryPage implements OnInit {
         tags: this.entrytags
       }
     });
+
+    modal.onDidDismiss()
+      .then((data) => {
+        const tags = data['data'].tags;
+        // console.log('passed tags '+tags);
+  
+        this.entry.tags = tags;
+        console.log(this.entry.tags);
+        this.entriesService.save();
+       
+       // console.log(tags);  
+      });
+
     return await modal.present();
+    // const { data } = await modal.onWillDismiss();
+    // console.log(data);
   }
 
   
