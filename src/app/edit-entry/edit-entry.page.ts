@@ -3,9 +3,6 @@ import { NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
-import { ModalController } from '@ionic/angular';
-
-
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -13,6 +10,11 @@ const { Geolocation } = Plugins;
 
 import { EntriesService } from '../services/entries.service';
 import { Entry } from '../interfaces/entry';
+
+import { TagsService } from '../services/tags.service';
+
+import { ModalController } from '@ionic/angular';
+import { TagsmodalPage } from '../modal/tagsmodal/tagsmodal.page';
 
 @Component({
   selector: 'app-edit-entry',
@@ -29,21 +31,25 @@ export class EditEntryPage implements OnInit {
 
   public location: String;
 
+  public entrytags;
+
   // Button Farbe für die Zustände isFavorite = true bzw. false
   likeColor: string = 'danger';
   unlikeColor: string = 'light';
 
-  constructor(private router: Router, private sanitizer: DomSanitizer, private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController, public modalController: ModalController) {
+  constructor(private router: Router, private sanitizer: DomSanitizer, private route: ActivatedRoute, private entriesService: EntriesService, private tagsService: TagsService, private navCtrl: NavController, public modalController: ModalController) {
 
     this.entry = {
       id: '',
       title: '',
       date: new Date(),
       content: '',
+      tags: this.tagsService.tags,
       isFavorite: false
     }
 
     this.buttonColor = '';
+    this.entrytags = this.entry.tags;
     
    }
 
@@ -107,7 +113,16 @@ export class EditEntryPage implements OnInit {
   // }
 
   
-
+  async presentTagsModal() {
+    const modal = await this.modalController.create({
+      component: TagsmodalPage,
+      componentProps: {
+        title: this.entry.title,
+        tags: this.entrytags
+      }
+    });
+    return await modal.present();
+  }
 
   
 

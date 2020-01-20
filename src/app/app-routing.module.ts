@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'favorites',
     loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
+    path: 'tagsmodal',
+    loadChildren: () => import('./modal/tagsmodal/tagsmodal.module').then( m => m.TagsmodalPageModule)
   }
 ];
 @NgModule({

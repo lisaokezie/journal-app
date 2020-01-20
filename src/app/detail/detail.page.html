@@ -22,12 +22,16 @@
     
     <div class="meta"><ion-icon name="clock"></ion-icon> {{ create }}</div>
     <ion-icon *ngIf="heart" name="heart" size="large" color="danger"></ion-icon>
+
+    <ion-chip *ngFor="let tag of entrytags">
+      <ion-label>{{ tag }}</ion-label>
+    </ion-chip>
   </div>
 
     <div class="entry-text">
     {{ entry.content }}
+    
   </div>
-
   </div>
 
 </ion-content>

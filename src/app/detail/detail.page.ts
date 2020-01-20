@@ -8,6 +8,9 @@ import { Entry } from '../interfaces/entry';
 import { tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
+import { TagsService } from '../services/tags.service';
+
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
@@ -23,15 +26,20 @@ export class DetailPage implements OnInit, OnDestroy {
 
   public subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) { 
+  public entrytags;
+
+  constructor(private route: ActivatedRoute, private tagsService: TagsService, private entriesService: EntriesService, private navCtrl: NavController) { 
 
     this.entry = {
       id: '',
       title: '',
       date: new Date,
       content: '',
+      tags: this.tagsService.tags, 
       isFavorite: false
     }
+
+    this.entrytags = this.entry.tags;
 
     // Prüft den Status von isFavorite 
     // Wenn isFavorite = true, wird ein Herz angezeigt
@@ -59,7 +67,7 @@ export class DetailPage implements OnInit, OnDestroy {
             this.entry = this.entriesService.getEntry(entryId)
           });
         }
-    
+
         this.heart = this.entriesService.getStatus(this.entry);
 
       })

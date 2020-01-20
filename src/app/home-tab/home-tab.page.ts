@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeTabPage implements OnInit {
 
+  public items = ['Tag1', 'Tag2', 'Tag3'];
+
   constructor() { }
 
   ngOnInit() {
   }
 
 
-  getFavorites(){
-    
-  }
+ 
 
 }

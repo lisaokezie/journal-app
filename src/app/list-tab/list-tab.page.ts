@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController} from '@ionic/angular';
 import { EntriesService } from '../services/entries.service';
 
-import { Entry } from '../interfaces/entry';
-
 
 @Component({
   selector: 'app-list-tab',
@@ -12,7 +10,7 @@ import { Entry } from '../interfaces/entry';
 })
 export class ListTabPage implements OnInit {
 
-  public favorites: Entry[] = [];
+ // public favorites: Entry[] = [];
 
   constructor(public entriesService: EntriesService, private navCtrl: NavController){ 
 
@@ -22,38 +20,38 @@ export class ListTabPage implements OnInit {
     this.entriesService.load();
 
 
-    this.entriesService.entries.forEach(element => this.favorites.push(element)
-    );
+   //this.entriesService.entries.forEach(element => this.favorites.push(element)
+    
   }
 
   addEntry(){
     this.navCtrl.navigateForward(`/tabs/entries/add-entry`);
   }
 
-  addToFavorites(entry: Entry): void{
-    if(entry.isFavorite === true){
-      this.favorites.push(entry);
-    }
-    else{
-      console.log("Not a favorite");
-    }
-  }
+  // addToFavorites(entry: Entry): void{
+  //   if(entry.isFavorite === true){
+  //     this.favorites.push(entry);
+  //   }
+  //   else{
+  //     console.log("Not a favorite");
+  //   }
+  // }
 
-  getFavorites(){
-    let list: Entry[] = [];
+  // getFavorites(){
+  //   let list: Entry[] = [];
 
-    this.entriesService.entries.forEach(function(element){
-      if(element.isFavorite === true){
-        list.push(element);
-        console.log(element.title + " is a favorite");
-      }
-      else{
-        console.log(element.title + " is not a favorite");
-      }
-    }
-    );
+  //   this.entriesService.entries.forEach(function(element){
+  //     if(element.isFavorite === true){
+  //       list.push(element);
+  //       console.log(element.title + " is a favorite");
+  //     }
+  //     else{
+  //       console.log(element.title + " is not a favorite");
+  //     }
+  //   }
+  //   );
 
-    console.log("Favoriten " + list)
-  }
+  //   console.log("Favoriten " + list)
+  // }
 
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 import { Entry } from '../interfaces/entry';
+import { TagsService } from '../services/tags.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,7 @@ export class EntriesService {
 
   public loaded: boolean = false;
 
-  
-
-  constructor(public storage: Storage) { 
+  constructor(public storage: Storage, private tagsService: TagsService) { 
     
   }
 
@@ -81,6 +81,7 @@ export class EntriesService {
         title: title,
         date: created,
         content: '',
+        tags: this.tagsService.tags,
         isFavorite: false
       });
       this.save();
@@ -94,15 +95,15 @@ export class EntriesService {
       }
     }
 
-    getFavorites(){
-        let favs: Entry[]= [];
+    // getFavorites(){
+    //     let favs: Entry[]= [];
 
-        for(let i; i<this.entries.length;i++){
-          if(this.entries[i].isFavorite){
-            console.log(this.entries[i])
-            favs.push(this.entries[i])
-          }
-        }
-        console.log(favs);
-    }
+    //     for(let i; i<this.entries.length;i++){
+    //       if(this.entries[i].isFavorite){
+    //         console.log(this.entries[i])
+    //         favs.push(this.entries[i])
+    //       }
+    //     }
+    //     console.log(favs);
+    // }
 }
