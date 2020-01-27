@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editmodal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-select multiple="true" [(ngModel)]="tags">
+    <ion-select-option *ngFor="let ta of tagsService.tags">{{ ta }}</ion-select-option>
+  </ion-select>
+
+  <ion-item button >Add Tag
+    
+  </ion-item>
+
+</ion-content>

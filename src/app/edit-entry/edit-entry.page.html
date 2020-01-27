@@ -11,20 +11,33 @@
 
 <ion-content>
   <div class="content">
+    <div class="container">
+      <!-- <ion-title>
+      <ion-input class="title-input entry-title" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
+    </ion-title> -->
+
+
+    <ion-textarea auto-grow class="title-input title-style" type="text" name="title" rows="1" [(ngModel)]="entry.title"></ion-textarea>
+ 
+    <ion-chip *ngFor="let tag of entry.tags">
+      <ion-label>{{ tag }}</ion-label>
+    </ion-chip>
 
     <ion-item>
-      <ion-input class="title-input" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
-  </ion-item>
-
-  <ion-chip *ngFor="let tag of entry.tags">
-    <ion-label>{{ tag }}</ion-label>
-  </ion-chip>
-
-    <ion-textarea auto-grow type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
+      <ion-icon name="pricetag"></ion-icon>
+      <ion-icon name="heart-half"></ion-icon>
+      <ion-icon name="image"></ion-icon>
+    </ion-item>
+ 
+    <ion-textarea auto-grow class="entry-text" type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
+  
   </div>
+</div>
 
   <!-- <img [src]="photo" > -->
+ 
 </ion-content>
+
 
 <div class="action-buttons">
   <ion-button slot="start" (click)="toggleLike(entry)" color="{{buttonColor}}">
@@ -42,4 +55,12 @@
   <ion-button (click)="addLocation">
     <ion-icon name="pin"></ion-icon>
   </ion-button>
-  </div>
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button><ion-icon name="heart"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

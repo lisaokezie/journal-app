@@ -30,4 +30,21 @@ export class TagsService {
       });
     });
   }
+
+  save(): void {
+    this.storage.set('tags', this.tags);
+  }
+
+  deleteTag(tag: String){
+    let index = this.tags.indexOf(tag);
+    if(index > -1){
+      this.tags.splice(index, 1);
+      this.save();
+    }
+  }
+
+  createTag(name): void {
+    this.tags.push(name);
+    this.save();
+  }
 }

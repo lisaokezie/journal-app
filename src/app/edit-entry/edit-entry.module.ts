@@ -8,12 +8,17 @@ import { EditEntryPageRoutingModule } from './edit-entry-routing.module';
 
 import { EditEntryPage } from './edit-entry.page';
 
+import { TagsmodalPageModule } from '../modal/tagsmodal/tagsmodal.module';
+
+
 @NgModule({
+
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditEntryPageRoutingModule
+    EditEntryPageRoutingModule,
+    TagsmodalPageModule
   ],
   declarations: [EditEntryPage]
 })

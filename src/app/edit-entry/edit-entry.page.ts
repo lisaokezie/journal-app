@@ -116,9 +116,11 @@ export class EditEntryPage implements OnInit {
   async presentTagsModal() {
     const modal = await this.modalController.create({
       component: TagsmodalPage,
+      cssClass: 'my-custom-modal-css',
       componentProps: {
         title: this.entry.title,
-        tags: this.entrytags
+        // tags: this.entrytags
+        tags: this.entry.tags
       }
     });
 
@@ -130,13 +132,9 @@ export class EditEntryPage implements OnInit {
         this.entry.tags = tags;
         console.log(this.entry.tags);
         this.entriesService.save();
-       
        // console.log(tags);  
       });
-
     return await modal.present();
-    // const { data } = await modal.onWillDismiss();
-    // console.log(data);
   }
 
   

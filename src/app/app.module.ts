@@ -12,13 +12,12 @@ import { AppComponent } from './app.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import { TagsmodalPage } from './modal/tagsmodal/tagsmodal.page';
-import { TagsmodalPageModule } from './modal/tagsmodal/tagsmodal.module';
+//import { TagsmodalPageModule } from './modal/tagsmodal/tagsmodal.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, TagsmodalPageModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot({
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot({
     name: '__mydb',
 driverOrder: ['indexeddb', 'sqlite', 'websql']
   }),

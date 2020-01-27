@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-
 import { TagsService } from '../../services/tags.service';
 
 
 @Component({
-  selector: 'app-tagsmodal',
-  templateUrl: './tagsmodal.page.html',
-  styleUrls: ['./tagsmodal.page.scss'],
+  selector: 'app-editmodal',
+  templateUrl: './editmodal.page.html',
+  styleUrls: ['./editmodal.page.scss'],
 })
-export class TagsmodalPage implements OnInit {
+export class EditmodalPage implements OnInit {
 
   title;
   tags;
 
   constructor(private modalController: ModalController, private tagsService: TagsService ) { }
 
+
   ngOnInit() {
-    // this.passedTitle = this.navParams.get('title');
-    // this.passedTags= this.navParams.get('tags');
 
     this.tagsService.load();
     console.log(this.tags);
@@ -26,17 +24,10 @@ export class TagsmodalPage implements OnInit {
 
   }
 
-  // closeModal(){
-  //   this.modalController.dismiss({
-  //     tags: this.tags,
-  //  });
-  // }
-
-  async closeModal(){
-    await this.modalController.dismiss({
+  closeModal(){
+    this.modalController.dismiss({
       tags: this.tags,
    });
   }
-
 
 }

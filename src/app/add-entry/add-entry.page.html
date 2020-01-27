@@ -13,17 +13,17 @@
 </ion-header>
 
 <ion-content>
+  <div class="container">
   <form (ngSubmit)="addEntry(formGroup.value)" [formGroup]="formGroup">
-    <ion-item>
-      <ion-label>Title</ion-label>
-      <ion-input formControlName="title" type="text" name="title"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Text</ion-label>
-    <ion-input formControlName="content" type="text" name="content"></ion-input>
-</ion-item>
-  <ion-item>
+   
+      
+    <ion-title><ion-input formControlName="title" type="text" name="title" placeholder="Title"></ion-input></ion-title>
+  
+    
+    <ion-input formControlName="content" type="text" name="content" placeholder="Text"></ion-input>
+  
     <ion-button type="submit">Save</ion-button>
-  </ion-item>
+
 </form>
+</div>
 </ion-content>

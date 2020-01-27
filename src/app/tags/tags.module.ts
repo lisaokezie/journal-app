@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TagsmodalPageRoutingModule } from './tagsmodal-routing.module';
+import { TagsPageRoutingModule } from './tags-routing.module';
 
-import { TagsmodalPage } from './tagsmodal.page';
+import { TagsPage } from './tags.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TagsmodalPageRoutingModule
+    TagsPageRoutingModule
   ],
-  declarations: [TagsmodalPage],
-  entryComponents: [
-    TagsmodalPage
-  ]
+  declarations: [TagsPage]
 })
-export class TagsmodalPageModule {}
+export class TagsPageModule {}
