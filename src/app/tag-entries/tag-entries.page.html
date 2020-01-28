@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ tag }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Alle Einträge mit dem Tag "{{ tag }}"
+    </ion-list-header>
+    <ion-item *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id">
+      {{ entry.title }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

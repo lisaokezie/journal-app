@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'tags',
     loadChildren: () => import('./tags/tags.module').then( m => m.TagsPageModule)
+  },
+  {
+    path: 'tag-entries',
+    loadChildren: () => import('./tag-entries/tag-entries.module').then( m => m.TagEntriesPageModule)
   }
 ];
 @NgModule({

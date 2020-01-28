@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TagsService } from '../services/tags.service';
 import { AlertController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.page.html',
@@ -11,7 +12,6 @@ import { AlertController } from '@ionic/angular';
 export class TagsPage implements OnInit {
 
   constructor(public tagsService: TagsService, public alertController: AlertController) { }
-
   
   ngOnInit() {
     this.tagsService.load();

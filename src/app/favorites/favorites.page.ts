@@ -20,25 +20,7 @@ export class FavoritesPage implements OnInit {
   ngOnInit() {
     this.entriesService.load();
 
-    // this.entriesService.entries.forEach(function(element){
-    //   if(element.isFavorite === true){
-    //     this.list.push(element);
-    //     console.log(element.title + " is a favorite");
-    //   }
-    //   else{
-    //     console.log(element.title + " is not a favorite");
-    //   }
-    // }
-    // );
-
     this.favs = this.entriesService.entries.filter(entry => entry.isFavorite === true);
   }
-
-  // printFavorites(){
-  //  // console.log(this.favs);
-
-  //   // const favs = this.entriesService.entries.filter(entry => entry.isFavorite === true);
-  //   // console.log(favs);
-  // }
 
 }

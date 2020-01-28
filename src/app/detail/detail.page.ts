@@ -68,7 +68,6 @@ export class DetailPage implements OnInit, OnDestroy {
           });
         }
 
-
         this.heart = this.entriesService.getStatus(this.entry);
         this.entrytags = this.entry.tags;
 

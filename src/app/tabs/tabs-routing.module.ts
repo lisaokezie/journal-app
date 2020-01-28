@@ -72,8 +72,38 @@ const routes: Routes = [
           },
           {
             path: 'tags',
-            loadChildren: () =>
-              import('../tags/tags.module').then(m => m.TagsPageModule)
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../tags/tags.module').then(m => m.TagsPageModule)
+              },
+              {
+                path: 'tag-entries/:tag',
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () => import('../tag-entries/tag-entries.module').then(m => m.TagEntriesPageModule)
+                  },
+                
+                {
+                  path: 'detail/:id',
+                  children: [
+                    {
+                      path: '',
+                      loadChildren: () => import('../detail/detail.module').then( m => m.DetailPageModule)
+      
+                    },
+                    {
+                      path:'edit',
+                      loadChildren: () => import('../edit-entry/edit-entry.module').then( m => m.EditEntryPageModule)
+      
+                    }
+      
+                  ]
+                }
+              ]
+              }
+            ] 
           }
         ]
       },
