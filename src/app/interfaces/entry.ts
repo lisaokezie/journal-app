@@ -4,5 +4,6 @@ export interface Entry {
     date: Date;
     content: string;
     tags: string[];
+    location: string;
     isFavorite: boolean;
   }

@@ -18,11 +18,13 @@ export class AddEntryPage implements OnInit {
   entry: Entry;
   title: string = '';
   content: string = '';
+  location: string = '';
 
   constructor(private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController) {
     this.formGroup = new FormGroup({
       title: new FormControl(),
-      content: new FormControl()
+      content: new FormControl(),
+      location: new FormControl()
     })
 
    }

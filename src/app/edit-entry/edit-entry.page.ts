@@ -45,6 +45,7 @@ export class EditEntryPage implements OnInit {
       date: new Date(),
       content: '',
       tags: [],
+      location: '',
       isFavorite: false
     }
 

@@ -72,7 +72,6 @@ export class EntriesService {
       // return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
     }
 
-    
     createEntry(title): void {
       let id = Date.now();
       let created = new Date();
@@ -82,6 +81,7 @@ export class EntriesService {
         date: created,
         content: '',
         tags: [],
+        location: '',
         isFavorite: false
       });
       this.save();
@@ -94,16 +94,4 @@ export class EntriesService {
         this.save();
       }
     }
-
-    // getFavorites(){
-    //     let favs: Entry[]= [];
-
-    //     for(let i; i<this.entries.length;i++){
-    //       if(this.entries[i].isFavorite){
-    //         console.log(this.entries[i])
-    //         favs.push(this.entries[i])
-    //       }
-    //     }
-    //     console.log(favs);
-    // }
 }

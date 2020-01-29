@@ -36,6 +36,7 @@ export class DetailPage implements OnInit, OnDestroy {
       date: new Date,
       content: '',
       tags: [], 
+      location: '',
       isFavorite: false
     }
 
@@ -73,6 +74,8 @@ export class DetailPage implements OnInit, OnDestroy {
 
       })
     ).subscribe();
+
+    console.log(this.entry.location);
   }
 
   ngOnDestroy() {
