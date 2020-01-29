@@ -14,7 +14,6 @@ import { Entry } from '../interfaces/entry';
 import { TagsService } from '../services/tags.service';
 
 import { ModalController } from '@ionic/angular';
-import { TagsmodalPage } from '../modal/tagsmodal/tagsmodal.page';
 
 import { EditmodalPage } from '../modal/editmodal/editmodal.page';
 
@@ -27,19 +26,12 @@ export class EditEntryPage implements OnInit {
 
   public entry: Entry;
 
-  public buttonColor: String;
-
   photo: SafeResourceUrl;
 
-  public location: String;
+  //public location: String;
 
-  //public entrytags;
 
-  // Button Farbe für die Zustände isFavorite = true bzw. false
-  likeColor: string = 'danger';
-  unlikeColor: string = 'light';
-
-  constructor(private router: Router, private sanitizer: DomSanitizer, private route: ActivatedRoute, private entriesService: EntriesService, private tagsService: TagsService, private navCtrl: NavController, public modalController: ModalController) {
+  constructor( private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController, public modalController: ModalController) {
 
     this.entry = {
       id: '',
@@ -50,10 +42,6 @@ export class EditEntryPage implements OnInit {
       location: '',
       isFavorite: false
     }
-
-    this.buttonColor = '';
-   // this.entrytags = this.entry.tags;
-    
    }
 
   ngOnInit() {

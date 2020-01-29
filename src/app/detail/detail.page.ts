@@ -74,17 +74,12 @@ export class DetailPage implements OnInit, OnDestroy {
 
       })
     ).subscribe();
-
-    console.log(this.entry.location);
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
   deleteEntry(entry: Entry){
-    this.entriesService.deleteEntry(entry);
-
-    console.log("Eintrag wurde gelöscht");
-    
+    this.entriesService.deleteEntry(entry);    
   }
 }

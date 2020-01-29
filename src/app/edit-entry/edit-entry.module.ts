@@ -8,8 +8,6 @@ import { EditEntryPageRoutingModule } from './edit-entry-routing.module';
 
 import { EditEntryPage } from './edit-entry.page';
 
-import { TagsmodalPageModule } from '../modal/tagsmodal/tagsmodal.module';
-
 import { EditmodalPageModule } from '../modal/editmodal/editmodal.module';
 
 
@@ -20,7 +18,6 @@ import { EditmodalPageModule } from '../modal/editmodal/editmodal.module';
     FormsModule,
     IonicModule,
     EditEntryPageRoutingModule,
-    TagsmodalPageModule,
     EditmodalPageModule
   ],
   declarations: [EditEntryPage]

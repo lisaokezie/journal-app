@@ -8,12 +8,16 @@ import { AddEntryPageRoutingModule } from './add-entry-routing.module';
 
 import { AddEntryPage } from './add-entry.page';
 
+import { EditmodalPageModule } from '../modal/editmodal/editmodal.module';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     AddEntryPageRoutingModule,
+    EditmodalPageModule,
     ReactiveFormsModule
   ],
   declarations: [AddEntryPage]

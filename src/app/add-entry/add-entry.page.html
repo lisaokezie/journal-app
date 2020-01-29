@@ -5,7 +5,10 @@
     </ion-buttons>
     <ion-title>New Entry</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="openEditModal()">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+      <ion-button (click)="addEntry(entry)" [routerLink]="'/tabs/entries'" routerDirection="back">
         <ion-icon name="checkmark"></ion-icon>       
       </ion-button>
       </ion-buttons>
@@ -14,18 +17,10 @@
 
 <ion-content>
   <div class="container">
-  <form (ngSubmit)="addEntry(formGroup.value)" [formGroup]="formGroup">
-   
-      
-    <ion-title><ion-input formControlName="title" type="text" name="title" placeholder="Title"></ion-input></ion-title>
   
-    
-    <ion-input formControlName="content" type="text" name="content" placeholder="Text"></ion-input>
+<ion-textarea auto-grow class="title-input title-style" type="text" name="title" rows="1" placeholder="Titel" [(ngModel)]="entry.title"></ion-textarea>
 
-    <ion-input formControlName="location" type="text" name="location" placeholder="Location"></ion-input>
-  
-    <ion-button type="submit">Save</ion-button>
+<ion-textarea auto-grow class="entry-text" type="text" name="content" rows="3" placeholder="Enter Text here" [(ngModel)]="entry.content"></ion-textarea>
 
-</form>
 </div>
 </ion-content>
