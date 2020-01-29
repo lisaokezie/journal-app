@@ -5,6 +5,10 @@
     </ion-buttons>
     <ion-title>Edit Entry</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="openEditModal()">
+        <ion-icon name="more">
+        </ion-icon>
+      </ion-button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -23,11 +27,9 @@
       <ion-label>{{ tag }}</ion-label>
     </ion-chip>
 
-    <ion-item>
-      <ion-icon name="pricetag"></ion-icon>
-      <ion-icon name="heart-half"></ion-icon>
-      <ion-icon name="image"></ion-icon>
-    </ion-item>
+    <div> <ion-icon name="pin"></ion-icon>{{ entry.location }}</div>
+    <div><ion-icon name="heart"></ion-icon>{{ entry.isFavorite }}</div>
+    
  
     <ion-textarea auto-grow class="entry-text" type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
   
@@ -38,29 +40,5 @@
  
 </ion-content>
 
-
-<div class="action-buttons">
-  <ion-button slot="start" (click)="toggleLike(entry)" color="{{buttonColor}}">
-    <ion-icon name="heart"></ion-icon>
-  </ion-button>
-  <ion-button (click)="presentTagsModal()">
-    <ion-icon name="pricetag"></ion-icon>
-  </ion-button>
-  <ion-button>
-    <ion-icon name="image"></ion-icon>
-  </ion-button>
-  <ion-button (click)="takePicture()">
-    <ion-icon name="camera"></ion-icon>
-  </ion-button>
-  <ion-button (click)="addLocation">
-    <ion-icon name="pin"></ion-icon>
-  </ion-button>
-</div>
-
 <ion-footer>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-button><ion-icon name="heart"></ion-icon></ion-button>
-    </ion-buttons>
-  </ion-toolbar>
 </ion-footer>

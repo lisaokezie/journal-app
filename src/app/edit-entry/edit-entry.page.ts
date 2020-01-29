@@ -16,6 +16,8 @@ import { TagsService } from '../services/tags.service';
 import { ModalController } from '@ionic/angular';
 import { TagsmodalPage } from '../modal/tagsmodal/tagsmodal.page';
 
+import { EditmodalPage } from '../modal/editmodal/editmodal.page';
+
 @Component({
   selector: 'app-edit-entry',
   templateUrl: './edit-entry.page.html',
@@ -31,7 +33,7 @@ export class EditEntryPage implements OnInit {
 
   public location: String;
 
-  public entrytags;
+  //public entrytags;
 
   // Button Farbe für die Zustände isFavorite = true bzw. false
   likeColor: string = 'danger';
@@ -50,7 +52,7 @@ export class EditEntryPage implements OnInit {
     }
 
     this.buttonColor = '';
-    this.entrytags = this.entry.tags;
+   // this.entrytags = this.entry.tags;
     
    }
 
@@ -66,79 +68,50 @@ export class EditEntryPage implements OnInit {
     }
 
     // Beim laden wird isFavorite geprüft und je nach Status die Farbe des Buttons festgelegt
-    if(this.entriesService.getStatus(this.entry)){
-      this.buttonColor = this.likeColor;
-    }else{
-      this.buttonColor = this.unlikeColor;
-    }
+    // if(this.entriesService.getStatus(this.entry)){
+    //   this.buttonColor = this.likeColor;
+    // }else{
+    //   this.buttonColor = this.unlikeColor;
+    // }
   }
-
-  // Funktion zum liken / entliken eines Eintrags
-  // Button Farbe ändert sich ja nach Zustand
-  // Wird aufgerufen, wenn der Nutzer auf den "Like-Button" klickt 
-  toggleLike(entry){
-    if(entry.isFavorite === true){
-      entry.isFavorite = false;
-      // console.log("unlike " + entry.isFavorite);
-      this.buttonColor = this.unlikeColor;
-    }
-    else{
-      entry.isFavorite = true;
-      // console.log("like " + entry.isFavorite);
-      this.buttonColor = this.likeColor;
-
-    }
-  } 
-
-  // save(){
-  //   this.entriesService.save();
-  //   this.router.navigate(['../'], { relativeTo: this.route });
-  // }
 
   //Kamera
-  async takePicture() {
-    const image = await Plugins.Camera.getPhoto({
-      quality: 100,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
+  // async takePicture() {
+  //   const image = await Plugins.Camera.getPhoto({
+  //     quality: 100,
+  //     allowEditing: false,
+  //     resultType: CameraResultType.DataUrl,
+  //     source: CameraSource.Camera
+  //   });
 
-    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-  }
-
-  // Geolocation
-  // async getCurrentPosition() {
-  //   const coordinates = await Geolocation.getCurrentPosition();
-  //   console.log('Current', coordinates);
+  //   this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   // }
 
-  
-  async presentTagsModal() {
+ // Edit Modal
+  async openEditModal(){
     const modal = await this.modalController.create({
-      component: TagsmodalPage,
+      component: EditmodalPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
         title: this.entry.title,
-        // tags: this.entrytags
-        tags: this.entry.tags
+        tags: this.entry.tags,
+        location: this.entry.location,
+        isFavorite: this.entry.isFavorite
       }
     });
 
     modal.onDidDismiss()
       .then((data) => {
         const tags = data['data'].tags;
-        // console.log('passed tags '+tags);
-  
+        const location = data['data'].location;
+        const isFavorite = data['data'].isFavorite;  
+        this.entry.isFavorite = isFavorite;
         this.entry.tags = tags;
-        console.log(this.entry.tags);
+        this.entry.location = location;
         this.entriesService.save();
-       // console.log(tags);  
       });
     return await modal.present();
   }
-
-  
 
 
 }

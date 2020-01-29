@@ -13,7 +13,8 @@
   <ion-list>
     <ion-list-header>Alle Einträge</ion-list-header>
     <ion-item button detail *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
-      {{ entry.title }}
+      <ion-label>{{ entry.title }}</ion-label>
+      <!-- <ion-text class="ion-text-wrap"> {{ entry.content }}</ion-text> -->
     </ion-item>
   </ion-list>
 </ion-content>

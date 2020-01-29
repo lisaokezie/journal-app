@@ -10,6 +10,8 @@ import { EditEntryPage } from './edit-entry.page';
 
 import { TagsmodalPageModule } from '../modal/tagsmodal/tagsmodal.module';
 
+import { EditmodalPageModule } from '../modal/editmodal/editmodal.module';
+
 
 @NgModule({
 
@@ -18,7 +20,8 @@ import { TagsmodalPageModule } from '../modal/tagsmodal/tagsmodal.module';
     FormsModule,
     IonicModule,
     EditEntryPageRoutingModule,
-    TagsmodalPageModule
+    TagsmodalPageModule,
+    EditmodalPageModule
   ],
   declarations: [EditEntryPage]
 })

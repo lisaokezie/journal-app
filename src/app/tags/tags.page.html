@@ -13,10 +13,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list lines="full">
     <ion-list-header>Alle Tags</ion-list-header>
-    <ion-item button *ngFor="let tag of tagsService.tags" [routerLink]="'/tabs/home/tags/tag-entries/'+ tag" routerDirection="forward">
-        <ion-label>{{ tag }}</ion-label>
+    <ion-item button detail *ngFor="let tag of tagsService.tags" [routerLink]="'/tabs/home/tags/tag-entries/'+ tag" routerDirection="forward">
+      <ion-icon name="pricetag" slot="start"></ion-icon>
+      <ion-label>{{ tag }}</ion-label>
         <ion-buttons slot="end">
           <ion-button><ion-icon name="create"></ion-icon></ion-button>
           <ion-button (click)="deleteTag(tag)"><ion-icon name="trash"></ion-icon></ion-button>
