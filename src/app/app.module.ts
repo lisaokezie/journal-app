@@ -12,7 +12,8 @@ import { AppComponent } from './app.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-//import { TagsmodalPageModule } from './modal/tagsmodal/tagsmodal.module';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ driverOrder: ['indexeddb', 'sqlite', 'websql']
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LocalNotifications
   ],
   bootstrap: [AppComponent]
 })

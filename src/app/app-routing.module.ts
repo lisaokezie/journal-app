@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'tag-entries',
     loadChildren: () => import('./tag-entries/tag-entries.module').then( m => m.TagEntriesPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   }
 ];
 @NgModule({

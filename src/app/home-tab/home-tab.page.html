@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'../settings'" routerDirection="forward">
+        <ion-icon name="cog"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

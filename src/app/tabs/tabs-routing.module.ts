@@ -47,6 +47,11 @@ const routes: Routes = [
               import('../home-tab/home-tab.module').then(m => m.HomeTabPageModule)
           },
           {
+            path: 'settings',
+            loadChildren: () =>
+            import('../settings/settings.module').then(m =>m.SettingsPageModule)
+          },
+          {
             path: 'favorites',
             children: [
               {
