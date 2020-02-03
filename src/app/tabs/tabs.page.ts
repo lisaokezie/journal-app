@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { AddEntryPage } from '../add-entry/add-entry.page';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +10,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(public modalController: ModalController) {}
 
+  async newEntry(){
+    const modal = await this.modalController.create({
+      component: AddEntryPage
+    });
+    return await modal.present();
+  }
 }

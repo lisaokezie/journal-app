@@ -34,7 +34,14 @@ export class AddEntryPage implements OnInit {
 
   addEntry(entry: Entry){
     this.entriesService.saveEntry(entry);
+    this.modalController.dismiss();
   }
+
+  closeModal(){
+    this.modalController.dismiss();
+  }
+
+  
 
   // Edit Modal
   async openEditModal(){

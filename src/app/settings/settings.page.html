@@ -8,13 +8,20 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+    <ion-item-divider>
+      <ion-label>
+        Notifications
+      </ion-label>
+    </ion-item-divider>
   <ion-item>
-    <ion-label>Notifications</ion-label>
+    <ion-label>Daily Reminder</ion-label>
     <ion-toggle slot="end" (ionChange)="prefService.toggleChanged($event)" [(ngModel)]="prefService.isActive"></ion-toggle>
   </ion-item>
   <ion-item *ngIf="prefService.isActive"> 
     <ion-label>Time</ion-label>
     <ion-datetime displayFormat="HH:mm" (ionChange)="prefService.timeChanged($event)" [(ngModel)]="prefService.sceduledTime"></ion-datetime>
   </ion-item>
-  
+</ion-list>
   </ion-content>

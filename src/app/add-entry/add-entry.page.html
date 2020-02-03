@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/entries"></ion-back-button>
+      <!-- <ion-back-button defaultHref="/tabs/entries"></ion-back-button> -->
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>New Entry</ion-title>
     <ion-buttons slot="end">
