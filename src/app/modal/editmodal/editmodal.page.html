@@ -1,6 +1,5 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-   
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close"></ion-icon>
@@ -11,29 +10,25 @@
 
 <ion-content>
 
-  <ion-item lines="full">
+  <ion-list lines="inset">
+  <ion-item>
     <ion-icon name="heart" slot="start"></ion-icon>
     <ion-label>Favorite</ion-label>
     <ion-toggle slot="end" checked [(ngModel)]="isFavorite"></ion-toggle>
   </ion-item>
 
-  <ion-item lines="full">
+  <ion-item>
     <ion-icon name="pricetag" slot="start"></ion-icon>
-  <ion-label position="floating">Tags</ion-label>
-  <ion-select multiple="true" [(ngModel)]="tags">
-    <ion-select-option *ngFor="let ta of tagsService.tags">{{ ta }}</ion-select-option>
+    <ion-label>Tags</ion-label>
+    <ion-select multiple="true" [(ngModel)]="tags">
+      <ion-select-option *ngFor="let ta of tagsService.tags">{{ ta }}</ion-select-option>
   </ion-select>
   </ion-item>
 
-  <!-- <ion-item lines="full">
-    <ion-icon name="add" slot="start"></ion-icon>
-    <ion-label>Create new Tag</ion-label>
-  </ion-item> -->
-
-  <ion-item button (click)="addLocation()" lines="full">
+  <ion-item button (click)="addLocation()">
     <ion-icon name="locate" slot="start"></ion-icon>
     <ion-label>Location</ion-label>
     <ion-text>{{ location }}</ion-text>
   </ion-item>
-
+</ion-list>
 </ion-content>

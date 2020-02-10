@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListTabPageRoutingModule } from './list-tab-routing.module';
 
 import { ListTabPage } from './list-tab.page';
+import { AddEntryPageModule } from '../add-entry/add-entry.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ListTabPage } from './list-tab.page';
     FormsModule,
     IonicModule,
     ListTabPageRoutingModule,
+    AddEntryPageModule,
     RouterModule.forChild([{ path: '', component: ListTabPage }])
   ],
   declarations: [ListTabPage]

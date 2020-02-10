@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController} from '@ionic/angular';
 import { EntriesService } from '../services/entries.service';
 
 import { Entry } from '../interfaces/entry';
@@ -11,16 +10,17 @@ import { Entry } from '../interfaces/entry';
 })
 export class FavoritesPage implements OnInit {
 
- // public list: Entry[] = [];
-
   public favs;
 
-  constructor(public entriesService: EntriesService, private navCtrl: NavController) { }
+  private options = {
+    day: 'numeric',
+    month: 'short'
+    }
+
+  constructor(public entriesService: EntriesService) { }
 
   ngOnInit() {
     this.entriesService.load();
-
     this.favs = this.entriesService.entries.filter(entry => entry.isFavorite === true);
   }
-
 }

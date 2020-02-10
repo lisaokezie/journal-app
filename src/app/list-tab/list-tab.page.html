@@ -1,17 +1,34 @@
-<ion-header>
+<ion-header no-border >
   <ion-toolbar>
-    <ion-title>Tagebucheinträge</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="newEntry()" color="dark" >
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-list>
-    <ion-list-header>Alle Einträge</ion-list-header>
-    <ion-item button detail *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
-      <ion-label>
-        {{ entry.title }}
-        <p>{{ entry.content }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content>
+<div class="content">
+  <h1>{{ prefService.journalName }}</h1>
+  <ion-card button detail color="light" *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
+    <ion-card-header >
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              {{ entry.title }}
+            </ion-col>
+            <ion-col class="ion-text-end">
+              <ion-icon *ngIf="entry.isFavorite" name="heart" size="small" color="danger"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> {{ entry.content }}</p>
+      <div class="meta">{{ entriesService.getDate(entry.date, options) }}</div>
+     </ion-card-content>
+  </ion-card>
+</div>
+</ion-content >

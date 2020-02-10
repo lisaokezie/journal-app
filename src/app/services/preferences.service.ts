@@ -11,7 +11,12 @@ export class PreferencesService {
 
   public isActive = false;
 
+  public journalName = 'Journal';
+
   public sceduledTime = '17:00';
+
+  public loaded: boolean = false;
+
 
   notifs: LocalNotificationScheduleResult;
   pendingNotifs: LocalNotificationScheduleResult;
@@ -19,11 +24,52 @@ export class PreferencesService {
   constructor(public storage: Storage) { 
   }
 
+  // load(): Promise<boolean>{
+  //   return new Promise((resolve) => {
+  //     this.storage.get('sceduledTime');
+  //     this.storage.get('isActive');
+  //     this.storage.get('notifs');
+  //     this.storage.get('pendingNotifs');
+  //     this.storage.get('journalName');
+  //       this.loaded = true;
+  //       resolve(true);
+  //   });
+  // }
+
+
+  loadName(): Promise<boolean> {
+
+    return new Promise((resolve) => {
+
+      this.storage.get('journalName').then((journalName) => {
+
+        if(journalName != null){
+          this.journalName = this.journalName;
+        }
+        this.loaded = true;
+        resolve(true);
+
+      });
+    });
+  }
+  
+
   save(): void{
     this.storage.set('sceduledTime', this.sceduledTime);
     this.storage.set('isActive', this.isActive);
     this.storage.set('notifs', this.notifs);
     this.storage.set('pendingNotifs', this.pendingNotifs);
+    this.storage.set('journalName', this.journalName);
+
+  }
+
+  changeName(name){
+    this.journalName = name;
+    this.storage.set('name', this.journalName);
+  }
+
+  saveName(): void{
+    this.storage.set('journalName', this.journalName);
   }
   
   getHour(){

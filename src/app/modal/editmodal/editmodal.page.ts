@@ -20,9 +20,7 @@ export class EditmodalPage implements OnInit {
 
 
   ngOnInit() {
-
     this.tagsService.load();
-
   }
 
   closeModal(){
@@ -54,7 +52,6 @@ export class EditmodalPage implements OnInit {
         }, {
           text: 'Add',
           handler: data => {
-            console.log(data.location);
             this.location = data.location;
           }
         }

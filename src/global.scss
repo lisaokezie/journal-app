@@ -25,6 +25,49 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+/* Open Sans */
+@font-face{
+    font-family: OpenSans-Bold;
+    font-style: bold;
+    src: url("./assets/fonts/Open_Sans/OpenSans-Bold.ttf");
+}
+@font-face{
+    font-family: OpenSans-ExtraBold;
+    font-style: extraBold;
+    src: url("./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf");
+}
+
+/* Source Sans Pro */
+@font-face{
+    font-family: SourceSansPro;
+    font-style: regular;
+    src: url("./assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+}
+
+@font-face{
+    font-family: SourceSansPro-Bold;
+    font-style: bold;
+    src: url("./assets/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf");
+}
+
+@font-face{
+    font-family: SourceSansPro-SemiBold;
+    font-style: semiBold;
+    src: url("./assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf");
+}
+
+/* Lato */
+@font-face{
+    font-family: Lato;
+    font-style: regular;
+    src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face{
+    font-family: Lato-Light;
+    font-style: light;
+    src: url("./assets/fonts/Lato/Lato-Light.ttf");
+}
 .my-custom-modal-css .modal-wrapper {
     height: 80%;
     top: 20%;
@@ -32,11 +75,13 @@
     display: block;  
     box-sizing: border-box;
  }
-
  .container{
+     padding: 20px;
+ }
+ .content{
     max-width: 800px;
     margin: 0 auto;
-    padding: 30px 8%;
+    padding: 0 30px;
 }
 
  .entry-title{
@@ -48,4 +93,24 @@
 .entry-text{
     font-size: 13pt;
     line-height: 150%;
+}
+
+h1, .entry-title{
+    // font-family: OpenSans-ExtraBold;
+    font-family: SourceSansPro-Bold;
+    margin: 10px 0;
+}
+
+h2{
+    font-family: SourceSansPro-SemiBold;
+}
+
+.meta{
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #a0a0a0;
+}
+p, .entry-text{
+    font-family: Lato-Light;
+    font-size: 1rem;
 }

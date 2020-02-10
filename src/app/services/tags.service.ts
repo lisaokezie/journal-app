@@ -7,11 +7,9 @@ import { Storage } from '@ionic/storage';
 })
 export class TagsService {
 
-
-  public tags: String[] = ["BeispieltagA", "BeispieltagB"];
+  public tags: String[] = [];
 
   public loaded: boolean = false;
-
 
   constructor(public storage: Storage) { }
 

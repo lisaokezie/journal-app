@@ -106,16 +106,6 @@ const routes: Routes = [
             ] 
           }
         ]
-      },
-      {
-        path: 'settings',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../settings-tab/settings-tab.module').then(m => m.SettingsTabPageModule)
-          }
-        ]
       }
     ]
   },

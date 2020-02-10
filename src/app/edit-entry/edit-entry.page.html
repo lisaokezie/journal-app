@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -15,25 +15,18 @@
 
 <ion-content>
   <div class="content">
-    <div class="container">
-      <!-- <ion-title>
-      <ion-input class="title-input entry-title" type="text" name="title" [(ngModel)]="entry.title"></ion-input>
-    </ion-title> -->
-
-
-    <ion-textarea auto-grow class="title-input title-style" type="text" name="title" rows="1" [(ngModel)]="entry.title"></ion-textarea>
+    <ion-textarea auto-grow class="entry-title" type="text" name="title" rows="1" [(ngModel)]="entry.title"></ion-textarea>
  
     <ion-chip *ngFor="let tag of entry.tags">
       <ion-label>{{ tag }}</ion-label>
     </ion-chip>
 
-    <div> <ion-icon name="pin"></ion-icon>{{ entry.location }}</div>
-    <div><ion-icon name="heart"></ion-icon>{{ entry.isFavorite }}</div>
-    
- 
+    <div *ngIf="entry.location != ''">{{ entry.location }}</div>
+    <!-- <div><ion-icon name="heart"></ion-icon>{{ entry.isFavorite }}</div> -->
+    <ion-icon *ngIf="entry.isFavorite" name="heart" size="small" color="danger"></ion-icon>
+
     <ion-textarea auto-grow class="entry-text" type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
-  
-  </div>
+
 </div>
 
   <!-- <img [src]="photo" > -->

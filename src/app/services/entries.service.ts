@@ -14,6 +14,7 @@ export class EntriesService {
 
   public loaded: boolean = false;
 
+  
   constructor(public storage: Storage, private tagsService: TagsService) { 
     
   }
@@ -61,17 +62,21 @@ export class EntriesService {
     }
 
     // Wandelt das Erstellungsdatum in einen String um
-    getDate(date: Date){
-      let options = {
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric'
-      }
+    // getDate(date: Date){
+    //   let options = {
+    //     day: 'numeric',
+    //     month: 'numeric',
+    //     year: 'numeric'
+    //   }
     
-    return date.toLocaleString('de-en', options);
-      // return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
-    }
+    // return date.toLocaleString('de-en', options);
+    // }
 
+
+    getDate(date: Date, options){
+    return date.toLocaleString('de-en', options);
+    }
+    
     createEntry(title): void {
       let id = Date.now();
       let created = new Date();

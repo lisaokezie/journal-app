@@ -20,13 +20,23 @@ export class DetailPage implements OnInit, OnDestroy {
 
   public entry: Entry;
   
-  public create: string;
-
   public heart: boolean;
 
   public subscription: Subscription;
 
   public entrytags;
+
+  public options = {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'long'
+  }
+
+  private stringOptions = {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'long'
+  }
 
   constructor(private route: ActivatedRoute, private tagsService: TagsService, private entriesService: EntriesService, private navCtrl: NavController) { 
 
@@ -45,8 +55,6 @@ export class DetailPage implements OnInit, OnDestroy {
     // Prüft den Status von isFavorite 
     // Wenn isFavorite = true, wird ein Herz angezeigt
     this.heart = this.entriesService.getStatus(this.entry)
-    // Wandelt Erstellungsdatum in formatierten String um 
-    this.create = this.entriesService.getDate(this.entry.date);
 
   }
 
@@ -79,6 +87,7 @@ export class DetailPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
   deleteEntry(entry: Entry){
     this.entriesService.deleteEntry(entry);    
   }

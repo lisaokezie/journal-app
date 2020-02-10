@@ -1,19 +1,23 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Favoriten</ion-title>
+    <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-list>
-  <ion-list-header>
-    Favoriten
-  </ion-list-header>
-  <ion-item button detail *ngFor="let entry of favs" [routerLink]="'/tabs/home/favorites/detail/' + entry.id" routerDirection="forward">
-    {{ entry.title }}
-  </ion-item>
-</ion-list>
+<div class="content">
+<ion-card button detail color="light" *ngFor="let entry of favs" [routerLink]="'/tabs/home/favorites/detail/' + entry.id" routerDirection="forward">
+  <ion-card-header >
+    <ion-card-title>{{ entry.title }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content rows="4" color="medium">
+    <p> {{ entry.content }}</p>
+    {{ entriesService.getDate(entry.date, options) }}
+   </ion-card-content>
+</ion-card>
+</div>
+
 </ion-content>

@@ -1,3 +1,7 @@
+.meta{
+     color: #5c5c5c;
+}
+
 .container{
     max-width: 800px;
     margin: 0 auto;
@@ -24,5 +28,13 @@ ion-chip{
 }
 
 .header{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+ion-col{
+    padding: 0;
+}
+ion-grid{
+    padding: 0;
+    margin: 10 0px;
 }

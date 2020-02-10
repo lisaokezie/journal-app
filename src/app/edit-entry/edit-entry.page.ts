@@ -28,9 +28,6 @@ export class EditEntryPage implements OnInit {
 
   photo: SafeResourceUrl;
 
-  //public location: String;
-
-
   constructor( private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController, public modalController: ModalController) {
 
     this.entry = {

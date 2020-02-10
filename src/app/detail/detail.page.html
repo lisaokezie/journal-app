@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ entry.title }}</ion-title>
+    <ion-title>{{ entriesService.getDate(entry.date, stringOptions) }} </ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="'./edit'">
         <ion-icon name="create"></ion-icon>
@@ -16,25 +16,35 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-title class="entry-title"> {{ entry.title }}</ion-title> -->
-  <div class="container">
+  <div class="content">
   <div class="header ion-text-left">
-    <h1>{{ entry.title }}</h1>
-    <div class="meta"><ion-icon name="clock"></ion-icon> {{ create }}</div>
-    <div><ion-icon name="pin"></ion-icon>{{ entry.location }}</div>
-    <ion-icon *ngIf="heart" name="heart" size="large" color="danger"></ion-icon>
 
-    <ion-chip *ngFor="let tag of entrytags">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+          <h1>{{ entry.title }}</h1>
+        </ion-col>
+        <ion-col class="ion-text-end" size="3">
+          <ion-icon *ngIf="entry.isFavorite" name="heart" size="small" color="danger"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+          <ion-text color="medium">
+        {{ entry.location }}
+      </ion-text>
+      </ion-row>
+    </ion-grid>
+
+    <ion-chip button outline="true"  *ngFor="let tag of entrytags">
       <ion-label>{{ tag }}</ion-label>
     </ion-chip>
   </div>
 
-    
     <div class="entry-text">
-      
-    {{ entry.content }}
-    
+      <p>{{ entry.content }}</p>
+    </div>
   </div>
-  </div>
+
+  
 
 </ion-content>
