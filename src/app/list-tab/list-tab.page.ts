@@ -13,19 +13,12 @@ import { PreferencesService } from '../services/preferences.service';
 })
 export class ListTabPage implements OnInit {
 
-  sliderConfig = {
-    spaceBetween: 12,
-    slidesPerView: 1.4,
-    slideShadows: false,
-    centeredSlides: false
-  };
-
-  private options = {
+  public options = {
     day: 'numeric',
     month: 'short'
     }
 
-  constructor(public modalController: ModalController, public entriesService: EntriesService, private navCtrl: NavController, private prefService: PreferencesService){ 
+  constructor(public modalController: ModalController, public entriesService: EntriesService, private navCtrl: NavController, public prefService: PreferencesService){ 
   }
 
   ngOnInit() {

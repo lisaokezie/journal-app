@@ -7,33 +7,3 @@ ion-grid{
     padding: 0;
     margin: 10 0px;
 }
-ion-card-title{
-    color: #494949;
-    font-size: 1.2rem;
-}
-
-ion-card{
-       margin: 20px 0;
-       padding: 5px 10px;    
-       border-radius: 15px;
-       box-shadow: none;
-    }
-    
-    ion-card-header{
-        padding-bottom: 3px;
-    }
-    
-    ion-card-content{
-        color: #707070;
-        font-size: 1rem;
-    }
-
-p{
-    padding: 5px 0;
-    margin: 0;
-    overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2;
-}

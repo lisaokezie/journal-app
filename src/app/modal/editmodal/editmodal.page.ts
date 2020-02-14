@@ -16,8 +16,7 @@ export class EditmodalPage implements OnInit {
   location;
   isFavorite;
 
-  constructor(private modalController: ModalController, private tagsService: TagsService, public alertController: AlertController) { }
-
+  constructor(private modalController: ModalController, public tagsService: TagsService, public alertController: AlertController) { }
 
   ngOnInit() {
     this.tagsService.load();
@@ -30,6 +29,35 @@ export class EditmodalPage implements OnInit {
       isFavorite: this.isFavorite
    });
   }
+
+  async newTag() {
+    const alert = await this.alertController.create({
+      header: 'New Tag',
+      inputs: [
+        {
+          name: 'tagname',
+          type: 'text',
+          placeholder: 'Enter Tag name '
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('cancel');
+          }
+        }, {
+          text: 'Add',
+          handler: data => {
+            // console.log(data.tagname);
+            this.tagsService.createTag(data.tagname);
+          }
+        }
+      ]
+    })
+      await alert.present();
+    }
 
 
   async addLocation() {
@@ -59,5 +87,4 @@ export class EditmodalPage implements OnInit {
     })
       await alert.present();
     }
-
 }

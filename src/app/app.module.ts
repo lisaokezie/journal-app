@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

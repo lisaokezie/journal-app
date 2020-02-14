@@ -13,9 +13,8 @@ export class EntriesService {
   public entries: Entry[] = [];
 
   public loaded: boolean = false;
-
   
-  constructor(public storage: Storage, private tagsService: TagsService) { 
+  constructor(public storage: Storage) { 
     
   }
 
@@ -40,19 +39,16 @@ export class EntriesService {
     }
 
     saveEntry(entry: Entry){
-      // Erzeugen einer eindeutigen ID 
       let id = Date.now();
       entry.id = id.toString();
       this.entries.push(entry);
       this.save();
-      // console.log("Es wurde ein neuer Eintrag hinzugefügt")
     }
 
     getEntry(id): Entry {
       return this.entries.find(entry => entry.id === id);
     }
 
-    // Gibt isFavorite Status zurück
     getStatus(entry: Entry){
       if(entry.isFavorite === true){
         return true
@@ -60,17 +56,6 @@ export class EntriesService {
         return false
       }
     }
-
-    // Wandelt das Erstellungsdatum in einen String um
-    // getDate(date: Date){
-    //   let options = {
-    //     day: 'numeric',
-    //     month: 'numeric',
-    //     year: 'numeric'
-    //   }
-    
-    // return date.toLocaleString('de-en', options);
-    // }
 
 
     getDate(date: Date, options){

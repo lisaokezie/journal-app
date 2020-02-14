@@ -16,6 +16,11 @@ export class TagEntriesPage implements OnInit {
 
   public tag;
 
+  public options = {
+    day: 'numeric',
+    month: 'short'
+    }
+
   constructor(public tagsService: TagsService, public entriesService: EntriesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -25,15 +30,11 @@ export class TagEntriesPage implements OnInit {
 
     this.tag = this.route.snapshot.paramMap.get('tag');
 
-    // console.log(this.tag);
-
     const filter = this.tag;
     this.filtered = this.entriesService.entries.filter((entry) => {
       if(entry.tags != null){
         return (entry.tags.includes(filter));
       }
     });
-
-  //  console.log('Filtered: ' + this.filtered);
   }
 }

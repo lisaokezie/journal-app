@@ -68,13 +68,7 @@
     font-style: light;
     src: url("./assets/fonts/Lato/Lato-Light.ttf");
 }
-.my-custom-modal-css .modal-wrapper {
-    height: 80%;
-    top: 20%;
-    position: absolute; 
-    display: block;  
-    box-sizing: border-box;
- }
+
  .container{
      padding: 20px;
  }
@@ -98,7 +92,7 @@
 h1, .entry-title{
     // font-family: OpenSans-ExtraBold;
     font-family: SourceSansPro-Bold;
-    margin: 10px 0;
+    margin: 10px 0 30px;
 }
 
 h2{
@@ -113,4 +107,47 @@ h2{
 p, .entry-text{
     font-family: Lato-Light;
     font-size: 1rem;
+}
+
+ion-item ion-label{
+    padding: 10px 0;
+}
+
+/* Styles fuer Cards */
+ion-card ion-col{
+    padding: 0;
+    margin: 0;
+}
+
+ion-card ion-grid{
+    padding: 0;
+    margin: 10 0px;
+}
+ion-card-title{
+    color: #494949;
+    font-size: 1.2rem;
+}
+
+ion-card{
+    margin: 20px 0;
+    padding: 5px 10px;    
+    border-radius: 15px;
+    box-shadow: none;
+}
+    
+ion-card-header{
+    padding-bottom: 3px;
+}
+    
+ion-card-content{
+    color: #707070;
+    font-size: 1rem;
+}
+
+p{
+    max-width: 100%;
+}
+
+ion-text, p{
+    overflow: hidden;
 }

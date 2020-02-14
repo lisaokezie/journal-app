@@ -7,10 +7,11 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 <div class="content">
-  <h1>{{ prefService.journalName }}</h1>
-  <ion-card button detail color="light" *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
+  <h1>{{ prefService.journalname }}</h1>
+  <ion-card style="border-radius: 15px; box-shadow: none; margin-bottom: 15px;" button color="light" *ngFor="let entry of entriesService.entries" [routerLink]="'/tabs/entries/detail/' + entry.id" routerDirection="forward">
     <ion-card-header >
       <ion-card-title>
         <ion-grid>
@@ -26,9 +27,12 @@
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-text class="ion-text-nowrap">
       <p> {{ entry.content }}</p>
+    </ion-text>
       <div class="meta">{{ entriesService.getDate(entry.date, options) }}</div>
      </ion-card-content>
   </ion-card>
+
 </div>
 </ion-content >

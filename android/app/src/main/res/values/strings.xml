@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Journal-App</string>
+    <string name="title_activity_main">Journal-App</string>
+    <string name="package_name">com.lisaokezie.journalapp</string>
+    <string name="custom_url_scheme">com.lisaokezie.journalapp</string>
+</resources>

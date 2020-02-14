@@ -9,15 +9,27 @@
 
 <ion-content>
 <div class="content">
-<ion-card button detail color="light" *ngFor="let entry of favs" [routerLink]="'/tabs/home/favorites/detail/' + entry.id" routerDirection="forward">
+
+<ion-card style="border-radius: 15px; box-shadow: none;  margin-bottom: 15px" button color="light" *ngFor="let entry of favs" [routerLink]="'/tabs/home/favorites/detail/' + entry.id" routerDirection="forward">
   <ion-card-header >
-    <ion-card-title>{{ entry.title }}</ion-card-title>
+    <ion-card-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9">
+            {{ entry.title }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-title>
   </ion-card-header>
-  <ion-card-content rows="4" color="medium">
+  <ion-card-content>
+    <ion-text class="ion-text-nowrap">
     <p> {{ entry.content }}</p>
-    {{ entriesService.getDate(entry.date, options) }}
+  </ion-text>
+    <div class="meta">{{ entriesService.getDate(entry.date, options) }}</div>
    </ion-card-content>
 </ion-card>
-</div>
 
+
+</div>
 </ion-content>

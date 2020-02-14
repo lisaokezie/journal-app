@@ -32,13 +32,13 @@ export class DetailPage implements OnInit, OnDestroy {
     month: 'long'
   }
 
-  private stringOptions = {
+  public stringOptions = {
     weekday: 'short',
     day: 'numeric',
     month: 'long'
   }
 
-  constructor(private route: ActivatedRoute, private tagsService: TagsService, private entriesService: EntriesService, private navCtrl: NavController) { 
+  constructor(private route: ActivatedRoute, public tagsService: TagsService, public entriesService: EntriesService, public navCtrl: NavController) { 
 
     this.entry = {
       id: '',

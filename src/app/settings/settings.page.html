@@ -8,13 +8,25 @@
 </ion-header>
 
 <ion-content>
-  <div class="content">  
   <ion-list>
-    <ion-label>
-      Notifications
-    </ion-label>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-icon slot="start" name="journal"></ion-icon>
+        <ion-label>Journal Name</ion-label>
+      </ion-item-divider>
+    <ion-item>
+      <ion-textarea type="text" [(ngModel)]="prefService.journalname"></ion-textarea>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+<ion-item-divider>
+  <ion-icon slot="start" name="notifications"></ion-icon>
+  <ion-label>
+    Notifications
+  </ion-label>
+</ion-item-divider>
   <ion-item>
-    <ion-icon slot="start" name="notifications"></ion-icon>
     <ion-label>Daily Reminder</ion-label>
     <ion-toggle slot="end" (ionChange)="prefService.toggleChanged($event)" [(ngModel)]="prefService.isActive"></ion-toggle>
   </ion-item>
@@ -22,6 +34,6 @@
     <ion-label>Time</ion-label>
     <ion-datetime displayFormat="HH:mm" (ionChange)="prefService.timeChanged($event)" [(ngModel)]="prefService.sceduledTime"></ion-datetime>
   </ion-item>
+</ion-item-group>
 </ion-list>
-</div>
   </ion-content>

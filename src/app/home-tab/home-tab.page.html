@@ -10,56 +10,27 @@
 
 <ion-content>
   <div class="content">
-  <h1>{{ prefService.journalName }}</h1>
-    <ion-grid>
-      <ion-row size="1" id="header" class="ion-text-start" >
-        <ion-col  >
-            <h2>Entries</h2>
-            <div class="number">{{ entriesService.entries.length}}</div>
-        </ion-col>
-        <ion-col >
-          <h2>Favorites</h2>
-          <div class="number">{{ filterArray().length }}</div>
-        </ion-col>
-      <ion-col >
-      </ion-col>
-      </ion-row>
+  <h1>{{ prefService.journalname }}</h1>
 
-      <ion-row button [routerLink]="'/tabs/home/favorites'" routerDirection="forward">
-        <ion-col class="ion-text-start" > 
-          <h2>Favorites</h2>
-        </ion-col>
-        <ion-col class="ion-text-end">
-          <ion-label>Show all</ion-label>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col *ngFor="let entry of filterArray().slice(0, 2);">
-          <ion-card  style="margin: 0 5px;" color="light" [routerLink]="'/tabs/home/favorites/detail/'+ entry.id">
-            <ion-card-title>{{ entry.title }}</ion-card-title>
-            <ion-card-subtitle>
-              {{ entriesService.getDate(entry.date, options) }}
-            </ion-card-subtitle>
-            </ion-card>
-          </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid>
-      <ion-row button [routerLink]="'/tabs/home/tags'" routerDirection="forward">
-        <ion-col class="ion-text-start">
-          <h2>Tags</h2>
-        </ion-col>
-        <ion-col class="ion-text-end">
-          <ion-label>Show all</ion-label>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-chip button color="primary" *ngFor="let tag of tagsService.tags" [routerLink]="'/tabs/home/tags/tag-entries/'+tag">
-            {{tag}}
-        </ion-chip>
-      </ion-row>
-    
-  </ion-grid>
+  <ion-list lines="none">
+    <ion-item button detail color="light" [routerLink]="'/tabs/home/favorites'" routerDirection="forward">
+      <ion-icon color="danger" name="heart" slot="start"></ion-icon>
+      <ion-label>
+        Favoriten
+      </ion-label>
+      <ion-badge slot="end" color="medium">
+        {{ filterArray().length }}
+      </ion-badge>
+    </ion-item>
+    <ion-item button detail color="light" [routerLink]="'/tabs/home/tags'" routerDirection="forward">
+      <ion-icon color="primary" name="pricetag" slot="start"></ion-icon>
+      <ion-label>
+        Tags
+      </ion-label>
+      <ion-badge slot="end" color="medium">
+        {{ tagsService.tags.length }}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
   </div>
 </ion-content>

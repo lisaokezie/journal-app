@@ -3,18 +3,43 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ tag }}</ion-title>
+    <ion-title>Tag "{{ tag }}"</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <div class="content">
+  <!-- <ion-list>
     <ion-list-header>
       Alle Einträge mit dem Tag "{{ tag }}"
     </ion-list-header>
     <ion-item *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id">
       {{ entry.title }}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
+  <ion-card button color="light" style="border-radius: 15px; box-shadow: none;  margin-bottom: 15px" *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id" routerDirection="forward">
+    <ion-card-header >
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              {{ entry.title }}
+            </ion-col>
+            <ion-col class="ion-text-end">
+              <ion-icon *ngIf="entry.isFavorite" name="heart" size="small" color="danger"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text class="ion-text-nowrap">
+      <p> {{ entry.content }}</p>
+    </ion-text>
+      <div class="meta">{{ entriesService.getDate(entry.date, options) }}</div>
+     </ion-card-content>
+  </ion-card>
+
+  </div>
 </ion-content>

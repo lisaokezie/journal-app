@@ -10,14 +10,17 @@ import { PreferencesService } from '../services/preferences.service';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private prefService: PreferencesService, public alertController: AlertController) { 
+  public name;
+
+  constructor(public prefService: PreferencesService, public alertController: AlertController) { 
+  this.name = '';
   }
 
   ngOnInit() {
     this.prefService.loadName();
-    console.log(this.prefService.journalName);
+    console.log(this.prefService.journalname);
+
+    this.name = this.prefService.journalname;
   }
-
-
 
 }

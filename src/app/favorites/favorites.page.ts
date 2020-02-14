@@ -12,7 +12,7 @@ export class FavoritesPage implements OnInit {
 
   public favs;
 
-  private options = {
+  public options = {
     day: 'numeric',
     month: 'short'
     }

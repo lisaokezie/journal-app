@@ -28,7 +28,7 @@ export class EditEntryPage implements OnInit {
 
   photo: SafeResourceUrl;
 
-  constructor( private route: ActivatedRoute, private entriesService: EntriesService, private navCtrl: NavController, public modalController: ModalController) {
+  constructor(private route: ActivatedRoute, public entriesService: EntriesService, public navCtrl: NavController, public modalController: ModalController) {
 
     this.entry = {
       id: '',
@@ -60,23 +60,9 @@ export class EditEntryPage implements OnInit {
     // }
   }
 
-  //Kamera
-  // async takePicture() {
-  //   const image = await Plugins.Camera.getPhoto({
-  //     quality: 100,
-  //     allowEditing: false,
-  //     resultType: CameraResultType.DataUrl,
-  //     source: CameraSource.Camera
-  //   });
-
-  //   this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-  // }
-
- // Edit Modal
   async openEditModal(){
     const modal = await this.modalController.create({
       component: EditmodalPage,
-      cssClass: 'my-custom-modal-css',
       componentProps: {
         title: this.entry.title,
         tags: this.entry.tags,

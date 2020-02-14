@@ -15,7 +15,7 @@ export class AddEntryPage implements OnInit {
   
   entry: Entry;
   
-  constructor(private entriesService: EntriesService, public modalController: ModalController) {
+  constructor(public entriesService: EntriesService, public modalController: ModalController) {
 
     this.entry = {
       id: '',

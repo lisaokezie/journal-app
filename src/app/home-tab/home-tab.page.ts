@@ -19,12 +19,12 @@ export class HomeTabPage implements OnInit {
     centeredSlides: false
   };
 
-  private options = {
+  public options = {
     day: 'numeric',
     month: 'short'
     }
 
-  constructor(public tagsService: TagsService, public entriesService: EntriesService, private prefService: PreferencesService) { }
+  constructor(public tagsService: TagsService, public entriesService: EntriesService, public prefService: PreferencesService) { }
 
   ngOnInit() {
     this.entriesService.load();

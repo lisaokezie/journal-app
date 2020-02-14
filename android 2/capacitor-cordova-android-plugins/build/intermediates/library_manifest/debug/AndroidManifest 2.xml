@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="capacitor.android.plugins"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application>
+        <provider
+            android:name="de.appplant.cordova.plugin.notification.util.AssetProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/localnotification_provider_paths" />
+        </provider>
+
+        <receiver
+            android:name="de.appplant.cordova.plugin.localnotification.TriggerReceiver"
+            android:exported="false" />
+        <receiver
+            android:name="de.appplant.cordova.plugin.localnotification.ClearReceiver"
+            android:exported="false" />
+
+        <activity
+            android:name="de.appplant.cordova.plugin.localnotification.ClickReceiver"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent" />
+    </application>
+
+</manifest>
