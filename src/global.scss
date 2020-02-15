@@ -79,7 +79,6 @@
 }
 
 h1, .entry-title{
-    // font-family: OpenSans-ExtraBold;
     font-family: SourceSansPro-Bold;
     margin: 10px 0;
 }
@@ -145,6 +144,24 @@ ion-text, p{
     margin-bottom: 30px;
 }
 
-ion-header{
-    background-color: #FFBC96;
+ion-header ion-title{
+   font-family: SourceSansPro;
+}
+
+ion-card, .card-style{
+    -webkit-box-shadow:  0px 0px 53px 16px rgba(0,0,0,0.05) !important;
+    -moz-box-shadow: 0px 0px 53px 16px rgba(0,0,0,0.05) !important;
+    box-shadow:  0px 0px 53px 16px rgba(0,0,0,0.05) !important;
+}
+
+ion-card{
+
+}
+
+ion-item ion-label{
+    font-family: Lato !important; 
+}
+
+ion-card-title{
+    font-family: SourceSansPro-SemiBold;
 }

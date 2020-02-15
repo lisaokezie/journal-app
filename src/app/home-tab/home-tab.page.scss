@@ -1,39 +1,11 @@
-#header h2{
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    color: rgb(71, 71, 71);
-    font-weight: bold;
-}
-
-#header{
-    margin-bottom: 20px;
-    border:2px solid #0000;
-}
-
-.number{
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
 h2{
     margin: 0;
     font-size: 1.4rem;
 }
 
-h3{
-    font-size: 1.2rem;
-    color: rgb(71, 71, 71);
-    margin-bottom: 10px;
-}
-
-label{
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
 ion-grid, ion-col{
     padding: 0;
-    margin: 5px auto;
+    margin: 0;
 }
 
 ion-grid{
@@ -43,32 +15,9 @@ ion-row{
     margin: 5px 0;
 }
 
-ion-chip{
+ion-chip ion-label{
+    font-family: Lato;
     font-size: 1rem;
-}
-
-ion-card-title{
-    font-size: 16px;
-    overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 1;
-   margin-bottom: 30px;
-}
-ion-card-subtitle{
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: #cfcfcf;
-
-}
-ion-card{
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: none;
-    border: none;
-    outline: none;
-    margin: 0;
 }
 
 ion-item{
@@ -78,4 +27,21 @@ ion-item{
 
 ion-item ion-label{
     font-size: 1.2rem;
+}
+
+ion-slide{
+    box-shadow: none;
+    padding: 5px 0;
+}
+
+ion-card{
+    text-align: left;
+    width: 90%;
+    box-shadow:  0px 0px 10px 6px rgba(0,0,0,0.05) !important;
+}
+
+#chip-container{
+    width: 90%;
+    margin: 0 auto;
+    
 }

@@ -10,6 +10,11 @@ import { PreferencesService } from '../services/preferences.service';
 })
 export class HomeTabPage implements OnInit {
 
+  public options = {
+    day: 'numeric',
+    month: 'short'
+    }
+
   constructor(public tagsService: TagsService, public entriesService: EntriesService, public prefService: PreferencesService) { }
 
   /* Lädt Einträge und Tags aus dem Service */

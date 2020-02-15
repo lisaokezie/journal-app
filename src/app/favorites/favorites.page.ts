@@ -13,7 +13,8 @@ export class FavoritesPage implements OnInit {
   /* Optionen für die Darstellung des Erstellungsdatums */
   public options = {
     day: 'numeric',
-    month: 'short'
+    month: 'short',
+    year: 'numeric'
     }
 
   constructor(public entriesService: EntriesService) { }

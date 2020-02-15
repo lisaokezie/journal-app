@@ -18,7 +18,8 @@ export class TagEntriesPage implements OnInit {
 
   public options = {
     day: 'numeric',
-    month: 'short'
+    month: 'short',
+    year: 'numeric'
     }
 
   constructor(public tagsService: TagsService, public entriesService: EntriesService, private route: ActivatedRoute) { }

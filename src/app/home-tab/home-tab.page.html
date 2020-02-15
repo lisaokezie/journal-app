@@ -12,25 +12,52 @@
   <div class="content">
   <h1 id="page-title">{{ prefService.journalname }}</h1>
 
-  <ion-list lines="none">
-    <ion-item button detail color="light" [routerLink]="'/tabs/home/favorites'" routerDirection="forward">
-      <ion-icon color="danger" name="heart" slot="start"></ion-icon>
-      <ion-label>
-        Favoriten
-      </ion-label>
-      <ion-badge slot="end" color="medium">
-        {{ filterArray().length }}
-      </ion-badge>
-    </ion-item>
-    <ion-item button detail color="light" [routerLink]="'/tabs/home/tags'" routerDirection="forward">
-      <ion-icon color="primary" name="pricetag" slot="start"></ion-icon>
-      <ion-label>
-        Tags
-      </ion-label>
-      <ion-badge slot="end" color="medium">
-        {{ tagsService.tags.length }}
-      </ion-badge>
-    </ion-item>
-  </ion-list>
+  <ion-item lines="none">
+    <ion-icon color="dark" name="heart" slot="start"></ion-icon>
+    <ion-label>
+      <h2>Favoriten</h2>
+    </ion-label>
+    <ion-button color="medium" fill="clear" slot="end" [routerLink]="'/tabs/home/favorites'" routerDirection="forward">Show all</ion-button>
+  </ion-item>
+
+  <ion-slides>
+    <ion-slide *ngFor="let entry of filterArray()">
+      <ion-card style="border-radius: 15px;" [routerLink]="'/tabs/home/favorites/detail/' + entry.id" routerDirection="forward">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="9">
+                  {{ entry.title }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-text class="ion-text-nowrap">
+          <p> {{ entry.content }}</p>
+        </ion-text>
+          <div class="meta">{{ entriesService.getDate(entry.date, options) }}</div>
+         </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item lines="none">
+    <ion-icon color="dark" name="pricetag" slot="start"></ion-icon>
+    <ion-label>
+      <h2>Tags</h2>
+    </ion-label>
+    <ion-button color="medium" fill="clear" slot="end" [routerLink]="'/tabs/home/tags'" routerDirection="forward">Show all</ion-button>
+  </ion-item>
+
+
+  <div id="chip-container">
+  <ion-chip *ngFor="let tag of tagsService.tags" outline="true" [routerLink]="'../tags/tag-entries/'+ tag" routerDirection="forward">
+      <ion-label>{{ tag }}</ion-label>
+  </ion-chip>
+</div>
+
   </div>
 </ion-content>

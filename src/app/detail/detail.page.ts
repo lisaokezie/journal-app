@@ -15,7 +15,7 @@ export class DetailPage implements OnInit{
   
   /* Optionen für die Darstellung des Erstellungsdatums */
   public stringOptions = {
-    weekday: 'short',
+    weekday: 'long',
     day: 'numeric',
     month: 'long'
   }

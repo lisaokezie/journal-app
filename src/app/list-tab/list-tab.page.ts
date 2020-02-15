@@ -15,7 +15,8 @@ export class ListTabPage implements OnInit {
   /* Optionen für die Darstellung des Erstellungsdatums */
   public options = {
     day: 'numeric',
-    month: 'short'
+    month: 'short',
+    year: 'numeric'
     }
 
   constructor(public modalController: ModalController, public entriesService: EntriesService, public prefService: PreferencesService){ 
