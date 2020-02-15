@@ -6,7 +6,7 @@
 
 **Verfasser: Lisa Okezie**
 
-##Beschreibung
+## Beschreibung
 
 Der Nutzer kann Tagebucheinträge mit einer Überschrift und Text erstellen. Zusätzlich können die Einträge mit einem Standort und eigenen Tags versehen und als Favorit markiert werden. Beim Hinzufügen und Bearbeiten-Modus kann der Nutzer die entsprechenden Felder für Titel und Text ausfüllen/bearbeiten. Zusätzlich lässt sich ein Modal mit weiteren Bearbeitungsmöglichkeiten wie dem markieren als Favorit, dem Hinzufügen von Tags sowie der Eingabe eines Standorts, öffnen.
 
@@ -17,7 +17,7 @@ In der Listenansicht werden alle Tagebucheinträge ausgegeben, während auf der 
 In den Einstellungen kann der Nutzer eine tägliche Erinnerung einstellen und den Namen des Tagebuchs ändern.
 
 
-##Probleme
+## Probleme
 
 Bei der Entwicklung der App bin ich auf folgende Probleme gestoßen:
 
@@ -37,7 +37,7 @@ Ich habe die App mit Capacitor gebuildet und den iOS Code in Xcode geöffnet. Do
 Auch die Suche in den verschiedenen Foren sowie in der Ionic / Capacitor Dokumentation zu diesem Problem blieb erfolglos wodurch ich meine iOS App nicht auf einem richtigen Gerät testen konnte. 
 
 
-##Verwendete Materialien
+## Verwendete Materialien
 
 **Google Fonts**
 
