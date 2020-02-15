@@ -21,7 +21,7 @@ In den Einstellungen kann der Nutzer eine tägliche Erinnerung einstellen und de
 
 Bei der Entwicklung der App bin ich auf folgende Probleme gestoßen:
 
-###Hinzufügen von Bildern
+### Hinzufügen von Bildern
 
 - Sowohl mit capacitor als auch mit dem Cordova Plugin ausprobiert.
 - Kein Imagepicker für die Browser Ansicht, kein Testen der Kamerafunktion im Simulator möglich
