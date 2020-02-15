@@ -5,6 +5,12 @@ import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
+
+/*
+Tags Service verwendet Ionic Storage zum Speichern von Tags
+und enthält Funktionen zum Hinzufügen, Löschen, Speichern und Laden.
+*/
+
 export class TagsService {
 
   public tags: String[] = [];

@@ -9,16 +9,7 @@
 
 <ion-content>
   <div class="content">
-  <!-- <ion-list>
-    <ion-list-header>
-      Alle Einträge mit dem Tag "{{ tag }}"
-    </ion-list-header>
-    <ion-item *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id">
-      {{ entry.title }}
-    </ion-item>
-  </ion-list> -->
-
-  <ion-card button color="light" style="border-radius: 15px; box-shadow: none;  margin-bottom: 15px" *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id" routerDirection="forward">
+  <ion-card button  style="border-radius: 15px; margin-bottom: 15px" *ngFor="let entry of filtered" [routerLink]="'./detail/' + entry.id" routerDirection="forward">
     <ion-card-header >
       <ion-card-title>
         <ion-grid>

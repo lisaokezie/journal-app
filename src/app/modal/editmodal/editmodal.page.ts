@@ -3,12 +3,13 @@ import { ModalController } from '@ionic/angular';
 import { TagsService } from '../../services/tags.service';
 import { AlertController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-editmodal',
   templateUrl: './editmodal.page.html',
   styleUrls: ['./editmodal.page.scss'],
 })
+
+/* Modal zum Bearbeiten der Einträge */
 export class EditmodalPage implements OnInit {
 
   title;
@@ -30,6 +31,7 @@ export class EditmodalPage implements OnInit {
    });
   }
 
+  /* Öffnet Alert zum Erstellen eines neuen Tags */
   async newTag() {
     const alert = await this.alertController.create({
       header: 'New Tag',
@@ -50,7 +52,6 @@ export class EditmodalPage implements OnInit {
         }, {
           text: 'Add',
           handler: data => {
-            // console.log(data.tagname);
             this.tagsService.createTag(data.tagname);
           }
         }
@@ -60,6 +61,7 @@ export class EditmodalPage implements OnInit {
     }
 
 
+ /* Öffnet Alert zum Hinzufügen eines Orts */
   async addLocation() {
     const alert = await this.alertController.create({
       header: 'Add Location',

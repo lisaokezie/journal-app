@@ -7,13 +7,18 @@ const { LocalNotifications } = Plugins;
 @Injectable({
   providedIn: 'root'
 })
+
+/*
+Speichert die Einstellungen für die tägliche Benachrichtigung und den Tagebuchnamen
+*/
+
 export class PreferencesService {
 
   public isActive = false;
 
   public journalname = 'Journal';
 
-  public sceduledTime = '17:00';
+  public sceduledTime = '20:00';
 
   public loaded: boolean = false;
 
@@ -33,23 +38,6 @@ export class PreferencesService {
         resolve(true);
     });
   }
-
-
-  loadName(): Promise<boolean> {
-
-    return new Promise((resolve) => {
-
-      this.storage.get('journalname').then((journalname) => {
-
-        if(journalname != null){
-          this.journalname = this.journalname;
-        }
-        this.loaded = true;
-        resolve(true);
-
-      });
-    });
-  }
   
   save(): void{
     this.storage.set('sceduledTime', this.sceduledTime);
@@ -58,13 +46,11 @@ export class PreferencesService {
     this.storage.set('pendingNotifs', this.pendingNotifs);
     this.storage.set('journalname', this.journalname);
   }
-
-  // changeName(name: string){
-  //   this.journalname = name;
-  //   this.storage.set('name', this.journalname);
-  //   this.save();
-  // }
   
+  /* 
+  Teilt die oben stehende Uhrezit (ISO 8601) in zwei Zahlen für Stunden und Minuten, 
+  damit die Parameter von der untenstehenden Funktion verwendet werden können.
+  */
   getHour(){
      const h = this.sceduledTime.split(':');
      return parseInt(h[0]); 
@@ -75,6 +61,7 @@ export class PreferencesService {
      return parseInt(m[1]); 
   }
 
+  /* Erstellt eine tägliche Erinnerung zu der vom Nutzer eingegebenen Uhrzeit */
   async dailyNotification(){
     this.notifs = await Plugins.LocalNotifications.schedule({
     notifications: [
@@ -97,7 +84,8 @@ export class PreferencesService {
   });
   this.save();
   }
-  
+
+  /* Löscht die Benachrichtigung */
   cancelNotification() {
     this.pendingNotifs && Plugins.LocalNotifications.cancel(this.pendingNotifs);
     this.save();
@@ -108,6 +96,8 @@ export class PreferencesService {
     console.log('PENDING', this.pendingNotifs);
   }
 
+  /* Eventlistener für das Toggle Element,
+  ändert bei Änderung 'isActive' */
   toggleChanged(eve){
     if(this.isActive){
       this.dailyNotification();
@@ -116,8 +106,8 @@ export class PreferencesService {
       this.cancelNotification();
     }
   }
-
   timeChanged(eve){
+    this.cancelNotification();
     this.dailyNotification();
   }
 }

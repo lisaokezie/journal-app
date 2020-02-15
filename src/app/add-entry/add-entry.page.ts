@@ -42,8 +42,10 @@ export class AddEntryPage implements OnInit {
   }
 
   
-
-  // Edit Modal
+  /* 
+  Öffnet das Modal zum Bearbeiten und gibt die Eigenschaften des aktuellen Eintrags an das Modal weiter.
+  Beim Schließen werden die entsprechenden Eigenschaften überschrieben.
+  */
   async openEditModal(){
     const modal = await this.modalController.create({
       component: EditmodalPage,

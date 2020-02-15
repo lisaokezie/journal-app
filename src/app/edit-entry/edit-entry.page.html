@@ -16,12 +16,9 @@
 <ion-content>
   <div class="content">
     <ion-textarea auto-grow class="entry-title" type="text" name="title" rows="1" [(ngModel)]="entry.title"></ion-textarea>
-    
     <ion-textarea auto-grow class="entry-text" type="text" name="content" rows="3" [(ngModel)]="entry.content"></ion-textarea>
-
     <ion-footer>
     <div id="meta-container">
-
       <ion-list lines="none">
         <ion-item *ngIf="entry.isFavorite">
           <ion-icon name="heart" slot="start"></ion-icon>
@@ -31,7 +28,7 @@
           <ion-icon name="compass" slot="start"></ion-icon>
           <ion-label >{{ entry.location }}</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item *ngIf="entry.tags !=''">
           <ion-icon name="pricetags" slot="start"></ion-icon>
           <ion-chip *ngFor="let tag of entry.tags" outline="true">
         <ion-label>{{ tag }}</ion-label>
@@ -40,9 +37,7 @@
       </ion-list>
     </div>
   </ion-footer>
-
 </div> 
 </ion-content>
-
 <ion-footer>
 </ion-footer>

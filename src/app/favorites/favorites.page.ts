@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EntriesService } from '../services/entries.service';
 
-import { Entry } from '../interfaces/entry';
-
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
@@ -12,6 +10,7 @@ export class FavoritesPage implements OnInit {
 
   public favs;
 
+  /* Optionen für die Darstellung des Erstellungsdatums */
   public options = {
     day: 'numeric',
     month: 'short'
@@ -20,7 +19,10 @@ export class FavoritesPage implements OnInit {
   constructor(public entriesService: EntriesService) { }
 
   ngOnInit() {
+    /* Lädt alle Einträge aus dem Service */
     this.entriesService.load();
+
+    /* Erstellt ein Array mit allen favorisierten Einträgen, welches auf der Seite ausgegeben wird */
     this.favs = this.entriesService.entries.filter(entry => entry.isFavorite === true);
   }
 }

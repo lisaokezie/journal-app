@@ -25,17 +25,6 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-/* Open Sans */
-@font-face{
-    font-family: OpenSans-Bold;
-    font-style: bold;
-    src: url("./assets/fonts/Open_Sans/OpenSans-Bold.ttf");
-}
-@font-face{
-    font-family: OpenSans-ExtraBold;
-    font-style: extraBold;
-    src: url("./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf");
-}
 
 /* Source Sans Pro */
 @font-face{
@@ -92,7 +81,7 @@
 h1, .entry-title{
     // font-family: OpenSans-ExtraBold;
     font-family: SourceSansPro-Bold;
-    margin: 10px 0 30px;
+    margin: 10px 0;
 }
 
 h2{
@@ -150,4 +139,12 @@ p{
 
 ion-text, p{
     overflow: hidden;
+}
+
+#page-title{
+    margin-bottom: 30px;
+}
+
+ion-header{
+    background-color: #FFBC96;
 }

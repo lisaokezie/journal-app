@@ -1,6 +1,6 @@
 {
   "appId": "com.lisaokezie.journalapp",
-  "appName": "Journal-App",
+  "appName": "Memories",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

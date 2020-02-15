@@ -12,6 +12,7 @@ export class TabsPage {
 
   constructor(public modalController: ModalController) {}
 
+  /* Öffnet Modal zum Hinzufügen eines neuen Eintrags */
   async newEntry(){
     const modal = await this.modalController.create({
       component: AddEntryPage

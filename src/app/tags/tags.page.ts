@@ -11,14 +11,13 @@ import { AlertController } from '@ionic/angular';
 })
 export class TagsPage implements OnInit {
 
-  
-
   constructor(public tagsService: TagsService, public alertController: AlertController) { }
   
   ngOnInit() {
     this.tagsService.load();
   }
 
+  /* Öffnet Modal zum Hinzufügen eines neuen Tags */
   async addTag() {
     const alert = await this.alertController.create({
       header: 'Create new Tag',
@@ -46,6 +45,7 @@ export class TagsPage implements OnInit {
       await alert.present();
     }
 
+    
     deleteTag(tag: string){
         this.tagsService.deleteTag(tag);
     }

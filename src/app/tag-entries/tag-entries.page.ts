@@ -30,6 +30,7 @@ export class TagEntriesPage implements OnInit {
 
     this.tag = this.route.snapshot.paramMap.get('tag');
 
+    /* Filtert die Einträge nach dem übergebenen Tag */
     const filter = this.tag;
     this.filtered = this.entriesService.entries.filter((entry) => {
       if(entry.tags != null){

@@ -1,20 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-
-import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
-const { Geolocation } = Plugins;
-
 import { EntriesService } from '../services/entries.service';
 import { Entry } from '../interfaces/entry';
-
-import { TagsService } from '../services/tags.service';
-
 import { ModalController } from '@ionic/angular';
-
 import { EditmodalPage } from '../modal/editmodal/editmodal.page';
 
 @Component({
@@ -22,11 +11,11 @@ import { EditmodalPage } from '../modal/editmodal/editmodal.page';
   templateUrl: './edit-entry.page.html',
   styleUrls: ['./edit-entry.page.scss'],
 })
+
+/* Diese Seite ermöglicht das Bearbeitzen der Einträge */
 export class EditEntryPage implements OnInit {
 
   public entry: Entry;
-
-  photo: SafeResourceUrl;
 
   constructor(private route: ActivatedRoute, public entriesService: EntriesService, public navCtrl: NavController, public modalController: ModalController) {
 
@@ -41,6 +30,10 @@ export class EditEntryPage implements OnInit {
     }
    }
 
+  /* 
+  Verwendet die übergebene id aus der Route und lädt mithilfe 
+  der Funktion 'getEntry' den entsprechenden Eintrag 
+  */
   ngOnInit() {
     let entryId = this.route.snapshot.paramMap.get('id');
 
@@ -51,15 +44,12 @@ export class EditEntryPage implements OnInit {
         this.entry = this.entriesService.getEntry(entryId)
       });
     }
-
-    // Beim laden wird isFavorite geprüft und je nach Status die Farbe des Buttons festgelegt
-    // if(this.entriesService.getStatus(this.entry)){
-    //   this.buttonColor = this.likeColor;
-    // }else{
-    //   this.buttonColor = this.unlikeColor;
-    // }
   }
 
+  /* 
+  Öffnet das Modal zum Bearbeiten und gibt die Eigenschaften des aktuellen Eintrags an das Modal weiter.
+  Beim Schließen werden die entsprechenden Eigenschaften überschrieben.
+  */
   async openEditModal(){
     const modal = await this.modalController.create({
       component: EditmodalPage,
@@ -83,6 +73,4 @@ export class EditEntryPage implements OnInit {
       });
     return await modal.present();
   }
-
-
 }

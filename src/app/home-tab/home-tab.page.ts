@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EntriesService } from '../services/entries.service';
-import { Entry } from '../interfaces/entry';
-
 import { TagsService } from '../services/tags.service';
 import { PreferencesService } from '../services/preferences.service';
 
@@ -12,25 +10,16 @@ import { PreferencesService } from '../services/preferences.service';
 })
 export class HomeTabPage implements OnInit {
 
-  sliderConfig = {
-    spaceBetween: 4,
-    slidesPerView: 2,
-    slideShadows: false,
-    centeredSlides: false
-  };
-
-  public options = {
-    day: 'numeric',
-    month: 'short'
-    }
-
   constructor(public tagsService: TagsService, public entriesService: EntriesService, public prefService: PreferencesService) { }
 
+  /* Lädt Einträge und Tags aus dem Service */
   ngOnInit() {
     this.entriesService.load();
     this.tagsService.load();
+    this.prefService.load();
   }
 
+  /* Filtert die Einträge nach Favoriten */
   filterArray(){
       let favorites: any[] = [];
       favorites = this.entriesService.entries.filter(entry => entry.isFavorite === true);

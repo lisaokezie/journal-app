@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-
 import { Entry } from '../interfaces/entry';
-import { TagsService } from '../services/tags.service';
-
 
 @Injectable({
   providedIn: 'root'
 })
+
+/*
+Entries Service verwendet Ionic Storage zum Speichern der Tagebucheinträge 
+und enthält Funktionen zum Hinzufügen, Löschen, Speichern und Laden von Einträgen.
+*/
+
 export class EntriesService {
   
   public entries: Entry[] = [];
@@ -58,6 +61,9 @@ export class EntriesService {
     }
 
 
+    /* Umwandeln des Date Objects in einen String, Parameter 'options' wird auf der jeweiligen Seite
+    defniert und bestimmt das Anzeigeformat
+    */
     getDate(date: Date, options){
     return date.toLocaleString('de-en', options);
     }

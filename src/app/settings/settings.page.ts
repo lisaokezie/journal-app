@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
 import { PreferencesService } from '../services/preferences.service';
 
 @Component({
@@ -10,17 +9,12 @@ import { PreferencesService } from '../services/preferences.service';
 })
 export class SettingsPage implements OnInit {
 
-  public name;
-
   constructor(public prefService: PreferencesService, public alertController: AlertController) { 
-  this.name = '';
   }
 
+  /* Lädt den Preferences Service */
   ngOnInit() {
-    this.prefService.loadName();
-    console.log(this.prefService.journalname);
-
-    this.name = this.prefService.journalname;
+    this.prefService.load();
   }
 
 }
