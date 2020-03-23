@@ -16,6 +16,7 @@ In der Listenansicht werden alle Tagebucheinträge ausgegeben, während auf der 
 
 In den Einstellungen kann der Nutzer eine tägliche Erinnerung einstellen und den Namen des Tagebuchs ändern.
 
+![Tagebuch-App "Memories"](http://portfolio.lisa-okezie.de/media/pages/portfolio/memories/626409547-1584969558/memoriesbanner.jpg)
 
 ## Probleme
 
